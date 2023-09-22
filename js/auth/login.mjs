@@ -1,8 +1,19 @@
 // log in endpoint
 
 import { API_BASE_URL } from "./registration.mjs";
+const loginUrl = `${API_BASE_URL}/api/v1/social/auth/login`;
 
-// /social/auth/login
+/**
+ * Function to login to account
+ * @param {string} url
+ * @param {object} userData
+ * ```js
+ * // use this function to login as a user
+ * // const userToLogin
+ * // console.log(userToLogin)
+ * ```
+ */
+
 async function loginUser(url, userData) {
   try {
     const postData = {
@@ -14,11 +25,14 @@ async function loginUser(url, userData) {
     };
 
     const response = await fetch(url, postData);
-    console.log(response);
     const json = await response.json();
-    console.log(json);
+    const accessToken = json.accessToken;
+    localStorage.setItem("accessToken", accessToken);
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
   } catch (error) {
-    console.error("Error:", error);
+    throw error;
   }
 }
 
@@ -26,7 +40,5 @@ const userToLogin = {
   email: "friday.student@stud.noroff.no",
   password: "fridayStudent123",
 };
-
-const loginUrl = `${API_BASE_URL}/api/v1/social/auth/login`;
 
 export { loginUser, loginUrl, userToLogin };

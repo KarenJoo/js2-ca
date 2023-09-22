@@ -4,7 +4,9 @@ export const API_BASE_URL = "https://api.noroff.dev";
  * API call registers the user
  * @param {string} url
  * @param {object} userData
- * @returns {Promise<void>}
+ * ```js
+ * //use this function to register a new user
+ * // const
  */
 export async function registerUser(url, userData) {
   try {
@@ -17,7 +19,6 @@ export async function registerUser(url, userData) {
     };
     const response = await fetch(url, postData);
     const json = await response.json();
-    console.log(json);
 
     // Checking the response from an HTTP request to see if it indicates an error
     if (!response.ok) {
@@ -25,6 +26,14 @@ export async function registerUser(url, userData) {
     }
   } catch (error) {
     console.log(error);
+    throw error;
   }
 }
 
+const userToRegister = {
+  name: "friday_student",
+  email: "friday.student@stud.noroff.no",
+  password: "fridayStudent123",
+};
+
+const registerUrl = `${API_BASE_URL}/api/v1/social/auth/register`;
