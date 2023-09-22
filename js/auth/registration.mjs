@@ -1,4 +1,4 @@
-export const API_BASE_URL = "https://api.noroff.dev";
+export const API_BASE_URL = "https://api.noroff.dev/api/v1";
 
 /**
  * API call registers the user
@@ -36,4 +36,4 @@ const userToRegister = {
   password: "fridayStudent123",
 };
 
-const registerUrl = `${API_BASE_URL}/api/v1/social/auth/register`;
+const registerUrl = `${API_BASE_URL}/social/auth/register`;
