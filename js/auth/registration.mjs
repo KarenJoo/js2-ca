@@ -1,15 +1,11 @@
 export const API_BASE_URL = "https://api.noroff.dev";
-const register = "/api/v1/social/auth/register";
+
 /**
  * API call registers the user
  * @param {string} url
  * @param {object} userData
- * @returns {promise}
- * ```js
- * registerUser(registerUrl, userToRegister);
- * ```
+ * @returns {Promise<void>}
  */
-
 export async function registerUser(url, userData) {
   try {
     const postData = {
@@ -22,7 +18,8 @@ export async function registerUser(url, userData) {
     const response = await fetch(url, postData);
     const json = await response.json();
     console.log(json);
-    // checking the response from an HTTP request to see if it indicates an error (chatGPT)
+
+    // Checking the response from an HTTP request to see if it indicates an error
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
@@ -30,3 +27,4 @@ export async function registerUser(url, userData) {
     console.log(error);
   }
 }
+
