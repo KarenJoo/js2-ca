@@ -1,6 +1,6 @@
 // log in endpoint
 
-import { API_BASE_URL } from "./registration.mjs";
+import { API_BASE_URL } from "../register/registration.mjs";
 const loginUrl = `${API_BASE_URL}/social/auth/login`;
 
 /**

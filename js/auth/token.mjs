@@ -1,5 +1,5 @@
 import { loginUser, loginUrl, userToLogin } from "./login.mjs";
-import { API_BASE_URL } from "./registration.mjs";
+import { API_BASE_URL } from "../register/registration.mjs";
 
 // request with token
 async function getWithToken(url) {
