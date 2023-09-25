@@ -34,13 +34,13 @@
               <h1 class="text-center form-title mb-2 text-primary">Log in</h1>
 
               <!-- submission form data -->
-              <form action="/profile/index.html" method="post">                
+              <form action="/profile/index.html" method="post" id="loginForm">                
                 <p class="m-0 text-primary">E-mail adress</p>
                 <div class="form-floating mb-1 text-light">
                   <input
                     type="email"
                     class="form-control border-secondary bg-primary opacity-50"
-                    id="email"
+                    id="loginEmail"
                     name="email"
                     placeholder="name@example.com"
                     required
@@ -53,7 +53,7 @@
                   <input
                     type="password"
                     class="form-control border-secondary"
-                    id="password"
+                    id="loginPassword"
                     name="password"
                     placeholder="minimum 8 characters"
                     minlength="8"

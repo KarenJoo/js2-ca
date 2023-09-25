@@ -1,10 +1,9 @@
-import { loginUser, loginUrl, userToLogin } from "./login.mjs";
+import { loginUser, loginUrl } from "./login.mjs";
 import { API_BASE_URL } from "../register/registration.mjs";
 
 // request with token
 async function getWithToken(url) {
   try {
-    console.log(url);
     const token = localStorage.getItem("accessToken");
     console.log(token);
     const fetchOptions = {
@@ -18,10 +17,10 @@ async function getWithToken(url) {
     console.log(response);
     const json = await response.json();
     console.log(json);
-    //
   } catch (error) {
     console.log(error);
-    throw error;
+    console.error("Registration failed:", error.message);
+
   }
 }
 
@@ -29,8 +28,5 @@ const postsUrl = `${API_BASE_URL}/social/posts`;
 
 getWithToken(postsUrl);
 
-const testToken = {
-  test: "test token",
-};
-console.log(testToken);
-export { testToken, getWithToken };
+
+export { getWithToken };

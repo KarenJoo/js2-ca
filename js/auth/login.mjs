@@ -3,6 +3,8 @@
 import { API_BASE_URL } from "../register/registration.mjs";
 const loginUrl = `${API_BASE_URL}/social/auth/login`;
 
+let userToLogin = {};
+
 /**
  * Function to login to account
  * @param {string} url
@@ -32,13 +34,30 @@ async function loginUser(url, userData) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
   } catch (error) {
-    throw error;
+    console.error("Registration failed:", error.message);
   }
 }
 
-const userToLogin = {
-  email: "friday.student@stud.noroff.no",
-  password: "fridayStudent123",
-};
+
+document.getElementById("loginForm").addEventListener("submit", async (event) => {
+  event.preventDefault(); // Prevent the default form submission
+
+  const loginEmail = document.getElementById("loginEmail").value;
+  const loginPassword = document.getElementById("loginPassword").value;
+
+  userToLogin = {
+    email: loginEmail,
+    password: loginPassword,
+  };
+
+  try {
+    // Call the login function and handle the response
+    await loginUser(loginUrl, userToLogin);
+    console.log(userToLogin); // Now you can log userToLogin here
+  } catch (error) {
+    console.error("Login failed:", error.message);
+  }
+});
 
 export { loginUser, loginUrl, userToLogin };
+

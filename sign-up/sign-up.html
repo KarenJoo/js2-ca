@@ -9,7 +9,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
     <link rel="stylesheet" href="../dist/css/index.css" />
-    <script src="/js//register/registration.mjs" type="module" defer></script>
+    <script src="/js/register/registration.mjs" type="module" defer></script>
 
     <title>Sign up Boho App</title>
   </head>  
@@ -36,7 +36,7 @@
                 <h1 class="text-center form-title mb-2 text-primary">Sign up</h1>
   
                 <!-- submission form data -->
-                <form action="/authentication/index.html" method="post">               
+                <form id="regForm" method="post" >               
                   <p class="m-0 text-primary">User name</p>
                   <div class="form-floating mb-3 text-light opacity-50">
                     <input
@@ -44,7 +44,7 @@
                       class="form-control border-secondary"
                       id="regUserName"
                       name="name"
-                      placeholder="Your full name"
+                      placeholder="Your user name"
                       required
                     />
                     <!-- required field -->
@@ -54,7 +54,7 @@
                   
                 <!-- Register e-mail -->
               
-                  <p class="m-0 text-primary">E-mail adress</p>
+                  <p class="m-0 text-primary">E-mail</p>
                   <div class="form-floating mb-1 text-light">
                     <input
                       type="email"
@@ -84,14 +84,30 @@
                     <label for="password">Create password</label>
                   </div>
 
-
+                  <!-- error messages -->
+             
+                    <!-- Success message -->
+                    <div id="successMessage" class="alert alert-success d-none" role="alert">
+                      Registration successful! You are now registered.
+                    </div>
+                  
+                    <!-- Unsuccessful message -->
+                    <div id="errorMessage" class="alert alert-danger d-none" role="alert">
+                      Registration failed. Please check your information and try again.
+                    </div>
+                  
+                
                      <div class="container d-flex align-items-center justify-content-center">
   
                   <button type="submit" class="btn btn-sm btn-outline-primary px-4 py-1 shadow p-3 mb-5">
                     Sign in
                   </button>
                 </div>
+                <a href="/authentication/index.html" class="d-flex align-items-center justify-content-center btn btn-sm btn-outline-primary shadow">
+                  Log in
+                </a>
                 </form>
+
               </div>
             </div>
           </div>
@@ -105,7 +121,6 @@
         </div>
       </div>
     </footer>
-    
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
   </body>
