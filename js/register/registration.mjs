@@ -1,5 +1,9 @@
 export const API_BASE_URL = "https://api.noroff.dev/api/v1";
 
+const nameReg = document.getElementById("regUserName").value;
+const emailReg = document.getElementById("regEmail").value;
+const passwordReg = document.getElementById("regPassword").value;
+
 /**
  * API call registers the user
  * @param {string} url
@@ -31,9 +35,11 @@ export async function registerUser(url, userData) {
 }
 
 const userToRegister = {
-  name: "friday_student",
-  email: "friday.student@stud.noroff.no",
-  password: "fridayStudent123",
+  name: nameReg,
+  email: emailReg,
+  password: passwordReg,
 };
 
 const registerUrl = `${API_BASE_URL}/social/auth/register`;
+
+console.log(userToRegister);

@@ -37,18 +37,18 @@
   
                 <!-- submission form data -->
                 <form action="/authentication/index.html" method="post">               
-                  <p class="m-0 text-primary">Name</p>
+                  <p class="m-0 text-primary">User name</p>
                   <div class="form-floating mb-3 text-light opacity-50">
                     <input
                       type="text"
                       class="form-control border-secondary"
-                      id="name"
+                      id="regUserName"
                       name="name"
                       placeholder="Your full name"
                       required
                     />
                     <!-- required field -->
-                    <label for="name">Name</label>
+                    <label for="name">Your user name</label>
                   </div>
                   
                   
@@ -59,12 +59,12 @@
                     <input
                       type="email"
                       class="form-control border-secondary bg-primary opacity-50"
-                      id="email"
+                      id="regEmail"
                       name="email"
-                      placeholder="name@example.com"
+                      placeholder="email"
                       required
                     />
-                    <label for="email ">Email address</label>
+                    <label for="email">ex. username@stud.noroff.no</label>
                   </div>
                   
                  <!-- Create password -->
@@ -74,7 +74,7 @@
                     <input
                       type="password"
                       class="form-control border-secondary"
-                      id="password"
+                      id="regPassword"
                       name="password"
                       placeholder="minimum 8 characters"
                       minlength="8"
@@ -88,7 +88,7 @@
                      <div class="container d-flex align-items-center justify-content-center">
   
                   <button type="submit" class="btn btn-sm btn-outline-primary px-4 py-1 shadow p-3 mb-5">
-                    Log in
+                    Sign in
                   </button>
                 </div>
                 </form>
