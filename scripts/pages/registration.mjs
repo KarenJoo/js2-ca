@@ -50,19 +50,20 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       // Call the registerUser function and handle the response
       await registerUser(registerUrl, userToRegister);
-      // Show success message
-      successMessage.classList.remove("d-none");
-      // Hide error message if previously displayed
-      errorMessage.classList.add("d-none");
-      // Clear the form
-      regForm.reset();
+       // Show success message
+       successMessage.classList.remove("d-none");
+       // Hide error message if previously displayed
+       errorMessage.classList.add("d-none");
+       // Clear the form
+       regForm.reset();
       // REMEMBER add success message
     } catch (error) {
       console.error("Registration failed:", error.message);
-      // Show error message
+        // Show error message
       errorMessage.classList.remove("d-none");
       // Hide success message if previously displayed
       successMessage.classList.add("d-none");
     }
   });
 });
+
