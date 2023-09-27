@@ -43,7 +43,7 @@
                       type="text"
                       class="form-control border-secondary"
                       id="regUserName"
-                      value="testuser"
+                      value=""
                       name="regUserName"
                       placeholder="Your username"
                       required
@@ -62,11 +62,13 @@
                       class="form-control border-secondary bg-primary opacity-50"
                       id="regEmail"
                       name="regEmail"
-                      value="test@noroff.no"
+                      value=""
                       placeholder="email"
                       required
                     />
                     <label for="regEmail">ex. username@stud.noroff.no</label>
+                    <div id="emailErrorMessage" class="d-none alert alert-danger">Email must be @noroff.no or @stud.noroff.no</div>
+
                   </div>
                   
                  <!-- Create password -->
@@ -78,7 +80,7 @@
                       class="form-control border-secondary"
                       id="regPassword"
                       name="regPassword"
-                      value="testpassword"
+                      value=""
                       placeholder="minimum 8 characters"
                       minlength="8"
                       required
