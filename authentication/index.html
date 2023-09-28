@@ -9,7 +9,8 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
     <link rel="stylesheet" href="../dist/css/index.css" />
-    <title>Authentication page Boho App</title>
+    <script src="../scripts/pages/login.mjs" type="module" defer></script>
+    <title>Log in page Boho App</title>
   </head>  
   
   <body class="bg-img min-vh-100 w-100">
@@ -33,12 +34,13 @@
               <h1 class="text-center form-title mb-2 text-primary">Log in</h1>
 
               <!-- submission form data -->
-              <form action="/profile/index.html" method="post">                <p class="m-0 text-primary">E-mail adress</p>
+              <form action="/profile/index.html" method="post" id="loginForm">                
+                <p class="m-0 text-primary">E-mail adress</p>
                 <div class="form-floating mb-1 text-light">
                   <input
                     type="email"
                     class="form-control border-secondary bg-primary opacity-50"
-                    id="email"
+                    id="loginEmail"
                     name="email"
                     placeholder="name@example.com"
                     required
@@ -51,7 +53,7 @@
                   <input
                     type="password"
                     class="form-control border-secondary"
-                    id="password"
+                    id="loginPassword"
                     name="password"
                     placeholder="minimum 8 characters"
                     minlength="8"
@@ -60,9 +62,13 @@
                   <!-- required min 8 characters -->
                   <label for="password">Password</label>
                 </div>
-
-                <div class="container d-flex align-items-center justify-content-center">
-
+                  
+                <!-- Unsuccessful message -->
+                <div id="loginError" class="alert alert-danger d-none" role="alert">
+                  Login failed. Please login with a registered user.
+                </div>
+                
+                  <div class="container d-flex align-items-center justify-content-center">  
                 <button type="submit" class="btn btn-sm btn-outline-primary px-4 py-1 shadow p-3 mb-5">
                   Log in
                 </button>

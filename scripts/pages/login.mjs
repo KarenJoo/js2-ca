@@ -1,0 +1,63 @@
+import { getWithToken } from "../auth/token.mjs";
+import { API_BASE_URL } from "../helpers/API.mjs";
+
+const loginUrl = `${API_BASE_URL}/social/auth/login`;
+
+/**
+ * Function to login to account
+ * @param {string} url
+ * @param {object} userData
+ * ```js
+ * // use this function to login as a user
+ * // const userToLogin
+ * // console.log(loginUser)
+ * ```
+ */
+
+export async function loginUser(url, userData) {
+  const loginError = document.getElementById("loginError");
+
+  try {
+    const postData = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    };
+
+    const response = await fetch(url, postData);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const json = await response.json();
+    const accessToken = json.accessToken;
+    console.log("Access Token Value:", accessToken);
+
+    localStorage.setItem("accessToken", accessToken);
+    // Redirect to the profile page if login was successful
+    window.location.href = "/profile/index.html";
+  } catch (error) {
+    console.error("Login failed:", error.message);
+    // Show error message
+    loginError.classList.remove("d-none");
+  }
+}
+
+document
+  .getElementById("loginForm")
+  .addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const loginEmail = document.getElementById("loginEmail").value;
+    const loginPassword = document.getElementById("loginPassword").value;
+
+    const userToLogin = {
+      email: loginEmail,
+      password: loginPassword,
+    };
+
+    await loginUser(loginUrl, userToLogin);
+  });
