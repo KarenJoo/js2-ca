@@ -9,8 +9,8 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
     <link rel="stylesheet" href="../dist/css/index.css" />
-    <script src="/scripts/common.mjs" type="module" defer></script>
-    <title>Authentication page Boho App</title>
+    <script src="../scripts/pages/login.mjs" type="module" defer></script>
+    <title>Log in page Boho App</title>
   </head>  
   
   <body class="bg-img min-vh-100 w-100">
@@ -62,9 +62,13 @@
                   <!-- required min 8 characters -->
                   <label for="password">Password</label>
                 </div>
-
-                <div class="container d-flex align-items-center justify-content-center">
-
+                  
+                <!-- Unsuccessful message -->
+                <div id="loginError" class="alert alert-danger d-none" role="alert">
+                  Login failed. Please login with a registered user.
+                </div>
+                
+                  <div class="container d-flex align-items-center justify-content-center">  
                 <button type="submit" class="btn btn-sm btn-outline-primary px-4 py-1 shadow p-3 mb-5">
                   Log in
                 </button>

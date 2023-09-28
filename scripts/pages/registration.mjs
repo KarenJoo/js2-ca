@@ -56,8 +56,6 @@ async function handleUserRegistration(event) {
   } catch (error) {
     // error message
     console.error("Registration failed:", error.message);
-
-    console.error("Registration failed:", error.message);
     // Show error message
     errorMessage.classList.remove("d-none");
     // Hide success message if previously displayed

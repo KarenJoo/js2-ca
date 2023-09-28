@@ -1,10 +1,7 @@
-// log in endpoint
+import { getWithToken } from "../auth/token.mjs";
+import { API_BASE_URL } from "../helpers/API.mjs";
 
-import { API_BASE_URL } from "./registration.mjs";
 const loginUrl = `${API_BASE_URL}/social/auth/login`;
-
-let userToLogin = {};
-export { loginUser, loginUrl, userToLogin };
 
 /**
  * Function to login to account
@@ -13,11 +10,13 @@ export { loginUser, loginUrl, userToLogin };
  * ```js
  * // use this function to login as a user
  * // const userToLogin
- * // console.log(userToLogin)
+ * // console.log(loginUser)
  * ```
  */
 
-async function loginUser(url, userData) {
+export async function loginUser(url, userData) {
+  const loginError = document.getElementById("loginError");
+
   try {
     const postData = {
       method: "POST",
@@ -28,35 +27,37 @@ async function loginUser(url, userData) {
     };
 
     const response = await fetch(url, postData);
-    const json = await response.json();
-    const accessToken = json.accessToken;
-    localStorage.setItem("accessToken", accessToken);
+
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
+
+    const json = await response.json();
+    const accessToken = json.accessToken;
+    console.log("Access Token Value:", accessToken);
+
+    localStorage.setItem("accessToken", accessToken);
+    // Redirect to the profile page if login was successful
+    window.location.href = "/profile/index.html";
   } catch (error) {
     console.error("Login failed:", error.message);
+    // Show error message
+    loginError.classList.remove("d-none");
   }
 }
 
 document
   .getElementById("loginForm")
   .addEventListener("submit", async (event) => {
-    event.preventDefault(); // Prevent the default form submission
+    event.preventDefault();
 
     const loginEmail = document.getElementById("loginEmail").value;
     const loginPassword = document.getElementById("loginPassword").value;
 
-    userToLogin = {
+    const userToLogin = {
       email: loginEmail,
       password: loginPassword,
     };
 
-    try {
-      // Call the login function and handle the response
-      await loginUser(loginUrl, userToLogin);
-      console.log(userToLogin); // Now you can log userToLogin here
-    } catch (error) {
-      console.error("Login failed:", error.message);
-    }
+    await loginUser(loginUrl, userToLogin);
   });
