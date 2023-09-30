@@ -7,8 +7,7 @@ export async function getWithToken(url) {
     const token = localStorage.getItem("accessToken");
 
     if (!token) {
-      //
-      return;
+      throw new Error("Token not available");
     }
 
     const fetchOptions = {
@@ -20,7 +19,12 @@ export async function getWithToken(url) {
     };
 
     const response = await fetch(url, fetchOptions);
-    const json = await response.json();
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    return response;
   } catch (error) {
     console.log(error);
     console.error("Request with token failed:", error.message);

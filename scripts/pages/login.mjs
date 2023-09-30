@@ -1,13 +1,12 @@
 import { getWithToken } from "../auth/token.mjs";
-import { API_BASE_URL } from "../helpers/API.mjs";
+import { API_BASE_URL, loginUrl } from "../helpers/API.mjs";
 
-const loginUrl = `${API_BASE_URL}/social/auth/login`;
 
 /**
  * Function to login to account
  * @param {string} url
  * @param {object} userData
- * ```js
+ * ```js    
  * // use this function to login as a user
  * // const userToLogin
  * // console.log(loginUser)
