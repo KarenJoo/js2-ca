@@ -6,7 +6,8 @@
   "scripts": {
     "build": "sass src/scss:dist/css",
     "watch": "sass --watch src/scss:dist/css & live-server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write \"auth/index.html\" \"feed/index.html\" \"sign-up/sign-up.html\" \"index.html\""
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
   },
   "devDependencies": {
     "live-server": "^1.2.2",
+    "prettier": "^3.0.0-alpha.6",
     "sass": "^1.67.0"
   }
 }
