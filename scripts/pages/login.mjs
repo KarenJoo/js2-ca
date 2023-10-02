@@ -33,7 +33,9 @@ export async function loginUser(url, userData) {
 
     const json = await response.json();
     const accessToken = json.accessToken;
+    const user = json.userData;
     console.log("Access Token Value:", accessToken);
+    console.log("User details:", userData);
 
     localStorage.setItem("accessToken", accessToken);
     // Redirect to the profile page if login was successful
@@ -60,3 +62,4 @@ document
 
     await loginUser(loginUrl, userToLogin);
   });
+
