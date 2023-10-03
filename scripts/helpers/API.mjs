@@ -2,6 +2,7 @@ export const API_BASE_URL = "https://api.noroff.dev/api/v1";
 export const registerUrl = `${API_BASE_URL}/social/auth/register`;
 export const loginUrl = `${API_BASE_URL}/social/auth/login`;
 export const getAllPosts = `${API_BASE_URL}/social/posts`;
+export const getSinglePost = `${API_BASE_URL}/social/posts/{id}`;
 
 export async function registerUser(userData) {
   const response = await fetch(registerUrl, {
@@ -18,3 +19,4 @@ export async function registerUser(userData) {
 
   return response.json();
 }
+

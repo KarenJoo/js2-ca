@@ -1,7 +1,7 @@
-import { getAllPosts } from "../helpers/API.mjs";
+// allposts.mjs
 import { getWithToken } from "../auth/token.mjs";
-
-let allPosts;
+import { renderPosts } from "../handlers/renderPosts.mjs";
+import { getAllPosts } from "../helpers/API.mjs";
 
 try {
   const token = localStorage.getItem("accessToken");
@@ -17,10 +17,11 @@ try {
     throw new Error(`Error: ${response.status}`);
   }
 
-  allPosts = await response.json();
+  const allPosts = await response.json();
   console.log("posts:", allPosts);
+
+  // Call the renderPosts function
+  renderPosts(allPosts);
 } catch (error) {
   console.error("Could not fetch posts:", error.message);
 }
-
-export { allPosts };

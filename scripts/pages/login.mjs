@@ -37,12 +37,12 @@ export async function loginUser(url, userData) {
     console.log("Access Token Value:", accessToken);
     console.log("User details:", userData);
 
-    localStorage.setItem("accessToken", accessToken);
+  
+    
     // Redirect to the profile page if login was successful
     window.location.href = "/profile/index.html";
   } catch (error) {
     console.error("Login failed:", error.message);
-    // Show error message
     loginError.classList.remove("d-none");
   }
 }
