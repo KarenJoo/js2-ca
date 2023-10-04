@@ -14,31 +14,55 @@ function renderPosts(posts) {
 
   postsContainer.innerHTML = "";
 
-  // Loop through allPosts 
   posts.forEach((post) => {
+    const { id, media, title, body, created } = post;
+
     const postCard = document.createElement("div");
     postCard.classList.add("col-12", "col-sm-4", "mb-3");
 
     // link to the single post page
     const postLink = document.createElement("a");
-    postLink.href = `/single-post/singlePost.html?id=${post.id}`; 
+    postLink.href = `/single-post/singlePost.html?id=${id}`;
 
-    postCard.innerHTML = `
-      <div class="card pr-2 pl-2">
-        <img src="${post.media}" class="img-thumbnail" alt="post thumbnail" />
-        <div class="card-body">
-          <h5 class="card-title">${post.title}</h5>
-          <p class="card-text text-truncate">${post.body}</p>
-          <p class="card-text">
-            <small class="text-muted">Last updated ${post.created}</small>
-          </p>
-        </div>
-      </div>
-    `;
+    const card = document.createElement("div");
+    card.classList.add("card", "pr-2", "pl-2");
 
-    postLink.appendChild(postCard);
-    postsContainer.appendChild(postLink);
+    const img = document.createElement("img");
+    img.src = media;
+    img.alt = "post thumbnail";
+    img.classList.add("img-thumbnail");
+
+    const cardBody = document.createElement("div");
+    cardBody.classList.add("card-body");
+
+    const titleElement = document.createElement("h5");
+    titleElement.classList.add("card-title");
+    titleElement.textContent = title;
+
+    const bodyElement = document.createElement("p");
+    bodyElement.classList.add("card-text", "text-truncate");
+    bodyElement.textContent = body;
+
+    const timestamp = document.createElement("p");
+    timestamp.classList.add("card-text");
+    const smallCreated = document.createElement("small");
+    smallCreated.classList.add("text-muted");
+    smallCreated.textContent = `Last updated ${created}`;
+    timestamp.appendChild(smallCreated);
+
+    // Append everything together
+    cardBody.appendChild(titleElement);
+    cardBody.appendChild(bodyElement);
+    cardBody.appendChild(timestamp);
+
+    card.appendChild(img);
+    card.appendChild(cardBody);
+
+    postLink.appendChild(card);
+    postCard.appendChild(postLink);
+    postsContainer.appendChild(postCard);
   });
 }
+
 
 export { renderPosts };
