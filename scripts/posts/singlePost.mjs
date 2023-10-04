@@ -1,16 +1,20 @@
-import { allPosts } from "../handlers/renderPosts.mjs";
 import { getSinglePost } from "../helpers/API.mjs";
+import { renderSinglePost } from "../handlers/renderSinglePost.mjs";
+import { getWithToken } from "../auth/token.mjs";
 
-// singlePost.mjs
 
 const singlePostContainer = document.getElementById("singlePostContainer");
 
 async function fetchSinglePost(postId) {
   try {
-    const response = await fetch(`https://api.noroff.dev/api/v1/posts/${postId}`);
+    const url = `${getSinglePost.replace('{id}', postId)}`;
+    const response = await getWithToken(url); 
+    console.log(response);
+
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
+
     const post = await response.json();
     renderSinglePost(post);
   } catch (error) {
@@ -18,7 +22,6 @@ async function fetchSinglePost(postId) {
   }
 }
 
-// Retrieve the post ID from the URL
 const urlParams = new URLSearchParams(window.location.search);
 const postId = urlParams.get('id');
 
