@@ -5,10 +5,10 @@ import { getWithToken } from "../auth/token.mjs";
 let allPosts;
 
 function renderPosts(posts) {
-  const postsContainer = document.querySelector(".container.mb-5.mt-5 .row");
+  const postsContainer = document.querySelector(".singlePostContainer .row");
 
   if (!postsContainer) {
-    console.error("Posts not found");
+    console.error("Posts container not found");
     return;
   }
 
@@ -23,6 +23,7 @@ function renderPosts(posts) {
     // link to the single post page
     const postLink = document.createElement("a");
     postLink.href = `/single-post/singlePost.html?id=${id}`;
+    postLink.classList.add("text-dark", "text-decoration-none");
 
     const card = document.createElement("div");
     card.classList.add("card", "pr-2", "pl-2");
@@ -31,11 +32,12 @@ function renderPosts(posts) {
     img.src = media;
     img.alt = "post thumbnail";
     img.classList.add("img-thumbnail");
+    card.appendChild(img);
 
     const cardBody = document.createElement("div");
     cardBody.classList.add("card-body");
 
-    const titleElement = document.createElement("h5");
+    const titleElement = document.createElement("h2");
     titleElement.classList.add("card-title");
     titleElement.textContent = title;
 
@@ -43,19 +45,16 @@ function renderPosts(posts) {
     bodyElement.classList.add("card-text", "text-truncate");
     bodyElement.textContent = body;
 
-    const timestamp = document.createElement("p");
-    timestamp.classList.add("card-text");
+    const timeEdited = document.createElement("p");
+    timeEdited.classList.add("card-text");
     const smallCreated = document.createElement("small");
     smallCreated.classList.add("text-muted");
     smallCreated.textContent = `Last updated ${created}`;
-    timestamp.appendChild(smallCreated);
+    timeEdited.appendChild(smallCreated);
 
-    // Append everything together
     cardBody.appendChild(titleElement);
     cardBody.appendChild(bodyElement);
-    cardBody.appendChild(timestamp);
-
-    card.appendChild(img);
+    cardBody.appendChild(timeEdited);
     card.appendChild(cardBody);
 
     postLink.appendChild(card);
@@ -63,6 +62,7 @@ function renderPosts(posts) {
     postsContainer.appendChild(postCard);
   });
 }
+
 
 
 export { renderPosts };
