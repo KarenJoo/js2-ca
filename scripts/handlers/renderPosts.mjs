@@ -1,25 +1,18 @@
-import { getAllPosts } from "../helpers/API.mjs";
-import { getWithToken } from "../auth/token.mjs";
-
-
 function renderPosts(posts) {
   const postsContainer = document.querySelector(".singlePostContainer .row");
 
   if (!postsContainer) {
     console.error("Posts container not found");
     return;
-
   }
 
   postsContainer.innerHTML = "";
 
-  posts.forEach((post) => {
-    const { id, media, title, body, created } = post;
+  // Filter out posts with empty media URLs
+  const validPosts = posts.filter((post) => post.media);
 
-    // if receiving media as null/no string
-    if (!media) {
-      return;
-  }
+  validPosts.forEach((post) => {
+    const { id, media, title, body, created } = post;
 
     const postCard = document.createElement("div");
     postCard.classList.add("col-12", "col-sm-4", "mb-3");
@@ -36,18 +29,6 @@ function renderPosts(posts) {
     img.src = media;
     img.alt = "post thumbnail";
     img.classList.add("img-thumbnail");
-    card.appendChild(img);
-
-    console.log("Image URL:", media);
-
-     // Handle image errors
-     img.onerror = () => {
-      img.src = "/img/post-1.jpg";
-    };
-
-    const postsWithEmptyMedia = posts.filter((post) => !post.media);
-console.log("Posts with empty media:", postsWithEmptyMedia);
-
     card.appendChild(img);
 
     const cardBody = document.createElement("div");
@@ -79,5 +60,5 @@ console.log("Posts with empty media:", postsWithEmptyMedia);
   });
 }
 
-
+// Export the modified renderPosts function
 export { renderPosts };
