@@ -18,7 +18,7 @@ export async function headers() {
   }
 }
 
-export async function authFetch(url, options) {
+export async function authFetch(url, options = {}) {
   try {
     const headersObject = await headers();
     console.log("Request Headers:", headersObject);

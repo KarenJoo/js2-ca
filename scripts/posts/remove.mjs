@@ -8,14 +8,14 @@ export async function removePost(id) {
     if (!id) {
         throw new Error("Deleting a post requires a postID");
     }
-    const deletePostURL = `${API_BASE_URL}${action}/${id}`;
+    const updatePostURL = `${API_BASE_URL}${action}/${id}`;
 
     try {
         const token = localStorage.getItem("accessToken");
         console.log("Access Token:", token);
 
         // for GET, UPDATE, PUT, DELETE
-        const response = await authFetch(deletePostURL, {
+        const response = await authFetch(updatePostURL, {
             method,
         });
 
@@ -23,10 +23,10 @@ export async function removePost(id) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
 
-        const deletedPost = await response.json();
-        console.log(deletedPost);
+        const updatePost = await response.json();
+        console.log(updatePost);
 
-        return deletedPost;
+        return updatePost;
 
     } catch (error) {
         console.error("Error deleting post:", error.message);

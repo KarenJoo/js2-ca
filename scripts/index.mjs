@@ -1,19 +1,26 @@
 import { createPost } from "./posts/create.mjs";
 import { updatePost } from "./posts/update.mjs";
 import { removePost } from "./posts/remove.mjs";
+import { getPosts, getPost } from "./posts/get.mjs";
+
 const path =  location.pathname;
 
 updatePost ({
-    id: 3206,
-    title: "Is saturNight",
-    body: "happy hour"
+    id: 3219,
+    title: "Howdy",
+    body: "Lets ride"
 });
 
 createPost ({
-    id: 3204,
-    title: "cool banana",
-    body: "bananas before lamas",
-    media: "https://images.freeimages.com/images/large-previews/5a4/banana-man-1489104.jpg"
+    id: 3407,
+    title: "sorry for the spam",
+    body: "sorry not sorry"
 });
 
-removePost(3206)
+// createPost()
+// updatePost()
+// removePost()
+// getPost()
+getPosts().then(console.log); 
+
+// removePost(3415)
