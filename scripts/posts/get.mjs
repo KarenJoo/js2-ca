@@ -1,7 +1,3 @@
-// allPosts.mjs
-import { getWithToken } from "../auth/token.mjs";
-import { renderPosts } from "../handlers/renderPosts.mjs";
-import { getAllPosts } from "../helpers/API.mjs";
 
 // (async () => {
 //     try {
@@ -18,4 +14,7 @@ import { getAllPosts } from "../helpers/API.mjs";
 
 //       }
 //     })
-      
+
+export async function getPosts() {}
+
+export async function getPost(id) {}

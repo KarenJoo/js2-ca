@@ -14,7 +14,7 @@ const successMessage = document.getElementById("successMessage");
 const errorMessage = document.getElementById("errorMessage");
 const emailErrorMessage = document.getElementById("emailErrorMessage");
 
-async function handleUserRegistration(event) {
+export async function handleUserRegistration(event) {
   event.preventDefault();
 
   hideAllErrorMessages();
@@ -57,14 +57,14 @@ async function handleUserRegistration(event) {
 }
 
 
-function validateEmail(email) {
+export function validateEmail(email) {
   // check for @noroff.no or @stud.noroff.no
   const emailRegex = /@(noroff\.no|stud\.noroff\.no)$/;
 
   return emailRegex.test(email);
 }
 
-function hideAllErrorMessages() {
+export function hideAllErrorMessages() {
   errorMessage.classList.add("d-none");
   emailErrorMessage.classList.add("d-none");
 }

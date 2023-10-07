@@ -1,15 +1,14 @@
 import { API_BASE_URL } from "../helpers/API.mjs";
-import { registerUrl } from "../helpers/API.mjs";
 
-
-// request with token
-export async function getWithToken(url) {
+export async function getWithToken() {
   try {
     const token = localStorage.getItem("accessToken");
 
     if (!token) {
       throw new Error("Token not available");
     }
+
+    const url = `${API_BASE_URL}/posts`; 
 
     const fetchOptions = {
       method: "GET",
@@ -27,7 +26,7 @@ export async function getWithToken(url) {
 
     return response;
   } catch (error) {
-    console.log(error);
     console.error("Request with token failed:", error.message);
+    throw error; // Rethrow the error so that calling code can handle it
   }
 }

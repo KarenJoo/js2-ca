@@ -1,38 +1,31 @@
-// import { getWithToken } from "../auth/token.mjs";
-// import { API_BASE_URL } from "../helpers/API.mjs";
-// import { authFetch } from "../helpers/authFetch.mjs";
+import { API_BASE_URL } from "../helpers/API.mjs";
+import { authFetch } from "./authFetch.mjs";
 
+const action = "/posts";
+const method = "POST";
 
+export async function createPost(postData) {
+  const createPostURL = API_BASE_URL + action;
 
-// const action = "/posts";
-// const method = "post";
+  try {
+    const token = localStorage.getItem("accessToken");
+    console.log("Access Token:", token);
 
-// export async function createPost(postData) {
-//     const createPostURL = API_BASE_URL + action; 
-//     const token = getWithToken("token");
+    // for GET, UPDATE, PUT, DELETE
+    const response = await authFetch(createPostURL, {
+      method,
+      body: JSON.stringify(postData),
+    });
 
-//     try {
-//         const response = await authFetch(createPostURL, {
-//           method,
-//           body: JSON.stringify(postData),
-//         })
-    
-//         const result = await response.json();
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
 
-//         console.log(result);
-// return result;
-//       } catch (error) {
-//         console.error("Error creating post:", error.message);
-//       }
-//     }
-    
-//     createPost ( {
-//         "title": "Dizmiss Post",
-//         "body": "Check edit",
-//         "tags": [],
-//         "media": null,
-//         "created": "2023-10-01T15:41:09.439Z",
-//         "updated": "2023-10-01T15:41:09.439Z",
-//         "id": 2118,
-//       })
-   
+    const post = await response.json();
+    console.log(post);
+  } catch (error) {
+    console.error("Error creating post:", error.message);
+  }
+}
+
+console.log('create');
