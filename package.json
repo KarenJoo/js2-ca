@@ -7,7 +7,7 @@
     "build": "sass src/scss:dist/css",
     "watch": "sass --watch src/scss:dist/css & live-server",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --write \"auth/index.html\" \"feed/index.html\" \"sign-up/sign-up.html\" \"index.html\""
+    "start": "npm run build && live-server"
   },
   "repository": {
     "type": "git",
