@@ -1,8 +1,8 @@
 import { getWithToken } from "../auth/token.mjs";
 
-export function headers() {
+export async function headers() {
   try {
-    const token = getWithToken("profile"); // Pass the endpoint you want to access
+    const token = await getWithToken("profile");
 
     if (!token) {
       throw new Error("Token not available");
@@ -19,8 +19,18 @@ export function headers() {
 }
 
 export async function authFetch(url, options) {
-  return fetch(url, {
-    ...options,
-    headers: headers(),
-  });
+  try {
+    const headersObject = await headers();
+    console.log("Request Headers:", headersObject);
+
+    const response = await fetch(url, {
+      ...options,
+      headers: headersObject,
+    });
+
+    return response;
+  } catch (error) {
+    console.error("Error authenticated request:", error.message);
+    throw error;
+  }
 }
