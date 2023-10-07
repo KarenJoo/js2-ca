@@ -37,6 +37,9 @@ export async function loginProfile(url, profileData) {
     console.log("Access Token Value:", accessToken);
     console.log("Profile details:", profileData);
 
+    localStorage.setItem("profileUser", JSON.stringify(profileData));
+    const storedProfileData = localStorage.getItem("profileUser");
+
   
     
     // Redirect to the profile page if login was successful
@@ -55,7 +58,8 @@ document
     const loginUser = document.getElementById("loginUser").value;
     const loginEmail = document.getElementById("loginEmail").value;
     const loginPassword = document.getElementById("loginPassword").value;
-console.log(loginUser)
+
+    console.log(loginUser)
     const profileToLogin = {
       name: loginUser,
       email: loginEmail,
