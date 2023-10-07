@@ -5,6 +5,9 @@ const action = "/posts";
 const method = "PUT";
 
 export async function updatePost(postData) {
+    if(!postData.id) {
+        throw new Error("Updating a post requires a postID");
+    }
   const updatePostURL = `${API_BASE_URL}${action}/${postData.id}`;
 
   try {
@@ -14,10 +17,6 @@ export async function updatePost(postData) {
     // for GET, UPDATE, PUT, DELETE
     const response = await authFetch(updatePostURL, {
       method,
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
       body: JSON.stringify(postData),
     });
 
