@@ -1,9 +1,10 @@
 import { createPost } from "./posts/create.mjs";
+import { updatePost } from "./posts/update.mjs";
 const path =  location.pathname;
 
-createPost ({
-    title: "This is a post",
-    body: "This is the content"
+updatePost ({
+    id: 3203,
+    title: "This is a updated post",
+    body: "This is the updated new content"
 });
 
-console.log("hello");

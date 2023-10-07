@@ -22,14 +22,18 @@ export async function createPost(postData) {
     });
 
     if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+  
+      const createPost = await response.json();
+      console.log(createPost);
+  
+      return createPost;
 
-    const post = await response.json();
-    console.log(post);
-  } catch (error) {
-    console.error("Error creating post:", error.message);
+    } catch (error) {
+      console.error("Error creating post:", error.message);
+      throw error; 
   }
+
 }
 
-console.log('create');
