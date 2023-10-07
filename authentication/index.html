@@ -37,7 +37,22 @@
               <h1 class="text-center form-title mb-2 text-dark">Log in</h1>
 
               <!-- submission form data -->
-              <form action="/profile" method="post" id="loginForm">                
+              <form action="/profile" method="post" id="loginForm">   
+                <p class="m-0 text-dark">Username</p>
+                <div class="form-floating mb-3 text-dark opacity-50">
+                  <input
+                    type="text"
+                    class="form-control border-secondary"
+                    id="loginUser"
+                    value=""
+                    name="loginUser"
+                    placeholder="Username"
+                    required
+                  />
+                  <!-- required field -->
+                  <label for="loginUser">Username</label>
+
+                </div>             
                 <p class="m-0 text-dark">E-mail adress</p>
                 <div class="form-floating mb-1 text-dark opacity-50">
                   <input

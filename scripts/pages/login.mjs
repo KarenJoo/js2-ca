@@ -5,15 +5,15 @@ import { API_BASE_URL, loginUrl } from "../helpers/API.mjs";
 /**
  * Function to login to account
  * @param {string} url
- * @param {object} userData
+ * @param {object} profileData
  * ```js    
- * // use this function to login as a user
- * // const userToLogin
- * // console.log(loginUser)
+ * // function to login as a Profile
+ * // const profileToLogin
+ * // console.log(loginProfile)
  * ```
  */
 
-export async function loginUser(url, userData) {
+export async function loginProfile(url, profileData) {
   const loginError = document.getElementById("loginError");
 
   try {
@@ -22,7 +22,7 @@ export async function loginUser(url, userData) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(userData),
+      body: JSON.stringify(profileData),
     };
 
     const response = await fetch(url, postData);
@@ -33,9 +33,9 @@ export async function loginUser(url, userData) {
 
     const json = await response.json();
     const accessToken = json.accessToken;
-    const user = json.userData;
+    const profile = json.profileData;
     console.log("Access Token Value:", accessToken);
-    console.log("User details:", userData);
+    console.log("Profile details:", profileData);
 
   
     
@@ -51,15 +51,17 @@ document
   .getElementById("loginForm")
   .addEventListener("submit", async (event) => {
     event.preventDefault();
-
+    
+    const loginUser = document.getElementById("loginUser").value;
     const loginEmail = document.getElementById("loginEmail").value;
     const loginPassword = document.getElementById("loginPassword").value;
-
-    const userToLogin = {
+console.log(loginUser)
+    const profileToLogin = {
+      name: loginUser,
       email: loginEmail,
       password: loginPassword,
     };
 
-    await loginUser(loginUrl, userToLogin);
+    await loginProfile(loginUrl, profileToLogin);
   });
 
