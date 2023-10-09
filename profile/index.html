@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="SoMe Styles Profile " content="The profile page for SoMe Styles"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
   <link rel="stylesheet" href="../dist/css/index.css" />
   <script src="/scripts/posts/create.mjs" type="module" defer></script>
@@ -55,39 +56,24 @@
             <div class="row align-items-center">
               <div class="d-flex justify-content-center align-items-center">
                 <!-- follow btn -->
-                <button type="button" class="btn btn-secondary shadow-sm mb-5" disabled>
+                <button type="button" class="btn btn-secondary shadow-sm mb-2" disabled>
                   Follow
                 </button>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
 
-    <!-- create a post -->
-    <div class="container mt-5 mb-4">
-      <div class="row">
-        <div class="d-flex align-items-center justify-content-center">
-          <h2>Create a new Post</h2>
-        </div>
-        <div class="card-body mx-3">
-          <form>
-            <div class="mb-3">
-              <label for="postText" class="form-label"></label>
-              <textarea class="form-control border-secondary" id="postText" rows="3"
-                placeholder="Write your post here..."></textarea>
+
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="d-flex justify-content-center align-items-center">
+                <!-- post btn -->
+                <a href="/content/createPost.html" class="btn btn-outline-secondary shadow-sm mb-5">
+                  New post
+                </a>                
+              </div>
             </div>
-            <div class="mb-3">
-              <label for="postImage" class="form-label">Image:</label>
-              <input type="file" class="form-control-file" id="postImage" />
-            </div>
-            <div class="d-grid gap-2">
-              <button class="btn btn-outline-secondary" type="button">
-                Button
-              </button>
-            </div>
-          </form>
+          </div>
         </div>
       </div>
     </div>
@@ -214,7 +200,7 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="/content/createPost.html">
                 <i class="post-icon fas fa-plus-circle fa-3x d-md-none d-lg-none text-primary"></i>
               </a>
             </li>

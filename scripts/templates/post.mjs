@@ -2,8 +2,15 @@ export function cardTemplate(postData) {
     const cardContainer = document.createElement("div");
     cardContainer.classList.add("col-12", "col-sm-4", "mb-3");
 
+    const row = document.createElement("div");
+    row.classList.add("row");
+
+    const row2 = document.createElement("div");
+    row2.classList.add("col-12", "pr-2", "pl-2");
+
     const card = document.createElement("div");
-    card.classList.add("card", "pr-2", "pl-2");
+    card.classList.add("card", "pr-2", "pl-2", "col");
+
 
     // image/media
     const img = document.createElement("img");
