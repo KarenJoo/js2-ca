@@ -5,18 +5,17 @@ const action = "/posts";
 const method = "POST";
 
 export async function createPost(postData) {
-    if(!postData.id) {
-        throw new Error("Creating a post requires a postID");
-    }
-  const createPostURL = `${API_BASE_URL}${action}`;
 
+  const createPostURL = `${API_BASE_URL}/posts`;
+  console.log("Created a post:", postData);
+  
   try {
     const token = localStorage.getItem("accessToken");
     console.log("Access Token:", token);
 
     // for GET, UPDATE, PUT, DELETE
     const response = await authFetch(createPostURL, {
-      method,
+      method: "POST",
       body: JSON.stringify(postData),
     });
 
@@ -24,10 +23,11 @@ export async function createPost(postData) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
   
-      const createPost = await response.json();
-      console.log(createPost);
+      const createdPost = await response.json();
+      console.log(createdPost);
+      console.log("API Response:", createdPost);
   
-      return createPost;
+      return createdPost;
 
     } catch (error) {
       console.error("Error creating post:", error.message);
