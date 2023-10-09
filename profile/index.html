@@ -1,109 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-    />
-    <link rel="stylesheet" href="../dist/css/index.css" />
-    <title>Profile page</title>
-  </head>
 
-  <body class="bg-primary">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <link rel="stylesheet" href="../dist/css/index.css" />
+  <script src="/scripts/posts/create.mjs" type="module" defer></script>
+  <script src="/scripts/index.mjs" type="module" defer></script>
+  <title>SoMe Styles | Profile </title>
+</head>
+
+<body class="bg-primary">
+  <header>
     <nav class="navbar navbar-expand-lg bg-secondary shadow">
       <div class="container">
-        <img
-          src="../img/logo-boho.png"
-          alt="logo Boho Styles"
-          class="img-fluid"
-          width="150px"
-          height="auto"
-        />
+        <a href="/feed/index.html">
+          <img src="../img/logo-boho.png" alt="logo Boho Styles" class="img-fluid" width="150px" height="auto" /></a>
         <div class="ml-auto d-flex align-items-center">
-          <!-- Profile Button -->
-          <a
-            class="btn-profile btn btn-outline-light d-flex disabled shadow-sm"
-            aria-disabled="true"
-            role="button"
-            data-bs-toggle="button"
-            >Profile</a
-          >
+          <!-- login and register Button -->
+          <a class="btn shadow-sm mx-1 text-primary" href="/authentication/index.html" role="button">Login</a>
+          <a class="btn text-primary shadow-sm mx-1" href="/register/index.html" role="button">Register</a>
+          <!-- Profile and Feed Button -->
+          <a class="btn-profile btn btn-outline-light d-flex disabled shadow-sm" aria-disabled="true" role="button"
+            data-bs-toggle="button">Profile</a>
 
-          <!-- Feed Button -->
-          <a
-            class="btn btn-outline-primary shadow-sm mx-1"
-            href="../feed/index.html"
-            role="button"
-            >Feed</a
-          >
+          <a class="btn btn-outline-primary shadow-sm mx-1" href="/feed" role="button">Feed</a>
         </div>
       </div>
     </nav>
-
-    <!-- Bottom navbar menu (@chatGPT) -->
-    <nav
-      class="navbar navbar-bottom navbar-expand fixed-bottom navbar-light bg-secondary"
-    >
-      <div class="container justify-content-around">
-        <ul class="navbar-nav">
-          <div class="icon-container d-flex align-items-center">
-            <p
-              class="h6 copyright d-none d-md-block d-lg-block m-3 align-items-center text-primary"
-            >
-              &copy; 2023 Boho Styles
-            </p>
-            <li class="nav-item">
-              <a class="nav-link" href="../profile/index.html">
-                <i
-                  class="fas fa-home fa-lg fa-2x d-md-none d-lg-none text-primary"
-                ></i>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <i
-                  class="post-icon fas fa-plus-circle fa-3x d-md-none d-lg-none text-primary"
-                ></i>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <i
-                  class="fas fa-search fa-2x d-md-none d-lg-none text-primary"
-                ></i>
-              </a>
-            </li>
-          </div>
-        </ul>
-      </div>
-    </nav>
-
+  </header>
+  <main>
     <!-- profile container -->
 
     <div class="container-fluid">
       <div class="row">
         <div
-          class="profile-container mb-3 w-100 bg-primary d-flex flex-column justify-content-center align-items-center"
-        >
+          class="profile-container mb-3 w-100 bg-primary d-flex flex-column justify-content-center align-items-center">
           <!-- Profile Section -->
-          <div
-            class="profile-section mt-5 mb-3 d-flex flex-column justify-content-center align-items-center"
-          >
-            <img
-              src="/img/profile.jpg"
-              alt="Profile Image"
-              class="profile-image mb-2 shadow rounded-circle object-fit-contain border border-2"
-              width="200px"
-              height="200px"
-            />
-            <h2 class="mb-3 display-5 text-secondary">User Name</h2>
+          <div class="profile-section mt-5 mb-3 d-flex flex-column justify-content-center align-items-center">
+            <img src="/img/profile.jpg" alt="Profile Image"
+              class="profile-image mb-2 shadow rounded-circle object-fit-contain border border-2" width="200px"
+              height="200px" />
+            <h1 class="mb-3 display-5 text-secondary">User Name</h1>
             <div class="followers d-flex">
-              <p class="h6 mb-2 text-light">Following: 100 | Followers: 200</p>
+              <p class="h6 mb-2 text-dark">
+                Following: 100 | Followers: 200
+              </p>
             </div>
           </div>
 
@@ -111,11 +55,7 @@
             <div class="row align-items-center">
               <div class="d-flex justify-content-center align-items-center">
                 <!-- follow btn -->
-                <button
-                  type="button"
-                  class="btn btn-secondary shadow-sm mb-5"
-                  disabled
-                >
+                <button type="button" class="btn btn-secondary shadow-sm mb-5" disabled>
                   Follow
                 </button>
               </div>
@@ -129,18 +69,14 @@
     <div class="container mt-5 mb-4">
       <div class="row">
         <div class="d-flex align-items-center justify-content-center">
-          <h4>Create a new Post</h4>
+          <h2>Create a new Post</h2>
         </div>
         <div class="card-body mx-3">
           <form>
             <div class="mb-3">
               <label for="postText" class="form-label"></label>
-              <textarea
-                class="form-control border-secondary"
-                id="postText"
-                rows="3"
-                placeholder="Write your post here..."
-              ></textarea>
+              <textarea class="form-control border-secondary" id="postText" rows="3"
+                placeholder="Write your post here..."></textarea>
             </div>
             <div class="mb-3">
               <label for="postImage" class="form-label">Image:</label>
@@ -161,11 +97,7 @@
       <div class="row">
         <div class="col-12 col-sm-4 mb-3">
           <div class="card pr-2 pl-2">
-            <img
-              src="../img/post-1.jpg"
-              class="img-thumbnail"
-              alt="post image 1"
-            />
+            <img src="../img/post-1.jpg" class="img-thumbnail" alt="post image 1" />
             <div class="card-body">
               <h5 class="card-title">Post title 1</h5>
               <p class="card-text text-truncate">
@@ -182,11 +114,7 @@
 
         <div class="col-12 col-sm-4 mb-3">
           <div class="card pr-2 pl-2">
-            <img
-              src="../img/post-1.jpg"
-              class="img-thumbnail"
-              alt="post image 2"
-            />
+            <img src="../img/post-1.jpg" class="img-thumbnail" alt="post image 2" />
             <div class="card-body">
               <h5 class="card-title">Post title 2</h5>
               <p class="card-text text-truncate">
@@ -203,11 +131,7 @@
 
         <div class="col-12 col-sm-4 mb-3">
           <div class="card pr-2 pl-2">
-            <img
-              src="../img/post-1.jpg"
-              class="img-thumbnail"
-              alt="post image 4"
-            />
+            <img src="../img/post-1.jpg" class="img-thumbnail" alt="post image 4" />
             <div class="card-body">
               <h5 class="card-title">Post title 3</h5>
               <p class="card-text text-truncate">
@@ -224,11 +148,7 @@
 
         <div class="col-sm-4 mb-3">
           <div class="card pr-2 pl-2">
-            <img
-              src="../img/post-1.jpg"
-              class="img-thumbnail"
-              alt="post image 4"
-            />
+            <img src="../img/post-1.jpg" class="img-thumbnail" alt="post image 4" />
             <div class="card-body">
               <h5 class="card-title">Post title 4</h5>
               <p class="card-text text-truncate">
@@ -245,11 +165,7 @@
 
         <div class="col-12 col-sm-4 mb-3">
           <div class="card pr-2 pl-2">
-            <img
-              src="../img/post-1.jpg"
-              class="img-thumbnail"
-              alt="post image 5"
-            />
+            <img src="../img/post-1.jpg" class="img-thumbnail" alt="post image 5" />
             <div class="card-body">
               <h5 class="card-title">Post title 5</h5>
               <p class="card-text text-truncate">
@@ -266,11 +182,7 @@
 
         <div class="col-12 col-sm-4 mb-3">
           <div class="card pr-2 pl-2">
-            <img
-              src="../img/post-1.jpg"
-              class="img-thumbnail"
-              alt="post image 1"
-            />
+            <img src="../img/post-1.jpg" class="img-thumbnail" alt="post image 1" />
             <div class="card-body">
               <h5 class="card-title">Post title 6</h5>
               <p class="card-text text-truncate">
@@ -286,10 +198,40 @@
         </div>
       </div>
     </div>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+
+    <!-- Bottom navbar menu (@chatGPT) -->
+    <nav class="navbar navbar-bottom navbar-expand fixed-bottom navbar-light bg-secondary">
+      <div class="container justify-content-around">
+        <ul class="navbar-nav">
+          <div class="icon-container d-flex align-items-center">
+            <p class="h6 copyright d-none d-md-block d-lg-block m-3 align-items-center text-primary">
+              &copy; 2023 Boho Styles
+            </p>
+            <li class="nav-item">
+              <a class="nav-link" href="/profile">
+                <i class="fas fa-home fa-lg fa-2x d-md-none d-lg-none text-primary"></i>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="post-icon fas fa-plus-circle fa-3x d-md-none d-lg-none text-primary"></i>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="fas fa-search fa-2x d-md-none d-lg-none text-primary"></i>
+              </a>
+            </li>
+          </div>
+        </ul>
+      </div>
+    </nav>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>

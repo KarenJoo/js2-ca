@@ -14,10 +14,9 @@ const successMessage = document.getElementById("successMessage");
 const errorMessage = document.getElementById("errorMessage");
 const emailErrorMessage = document.getElementById("emailErrorMessage");
 
-async function handleUserRegistration(event) {
+export async function handleUserRegistration(event) {
   event.preventDefault();
 
-  // Hide all error messages
   hideAllErrorMessages();
 
   const regUsername = document.getElementById("regUserName").value;
@@ -32,46 +31,40 @@ async function handleUserRegistration(event) {
     return;
   }
 
-  const user = {
+  const profile = {
     name: regUsername,
     email: regEmail,
     password: regPassword,
   };
 
-  console.log(user);
+  console.log(profile);
 
   try {
-    const response = await registerUser(user);
+    const response = await registerUser(profile);
 
-    // success message
     successMessage.classList.remove("d-none");
-    // Hide error message if previously displayed
     errorMessage.classList.add("d-none");
-    // Clear the form
     regForm.reset();
 
     setTimeout(() => {
       successMessage.classList.add("d-none");
     }, 5000);
   } catch (error) {
-    // error message
     console.error("Registration failed:", error.message);
-    // Show error message
     errorMessage.classList.remove("d-none");
-    // Hide success message if previously displayed
     successMessage.classList.add("d-none");
   }
 }
 
-// (chatGPT)
-function validateEmail(email) {
+
+export function validateEmail(email) {
   // check for @noroff.no or @stud.noroff.no
   const emailRegex = /@(noroff\.no|stud\.noroff\.no)$/;
 
   return emailRegex.test(email);
 }
 
-function hideAllErrorMessages() {
+export function hideAllErrorMessages() {
   errorMessage.classList.add("d-none");
   emailErrorMessage.classList.add("d-none");
 }
