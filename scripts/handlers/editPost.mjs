@@ -1,6 +1,6 @@
 import { updatePost } from "../posts/update.mjs";
 
-export function editPostListener(){
+export function editPostListener() {
     const form = document.querySelector("#editPost");
 
     const url = new URL(location.href);
@@ -8,14 +8,20 @@ export function editPostListener(){
 
     if (form) {
         form.addEventListener("submit", (event) => {
-            event.preventDefault()
-            const form = event.target;
-            const formData = new FormData(form);
-            const post = Object.fromEntries(formData.entries())
-            post.id = id;
+            event.preventDefault();
+            console.log("Update post success!");
 
-            editPost(post)
-        })
+            const formData = new FormData(event.target);
+
+            const postData = {
+                title: formData.get("postTitle"), // Use "postTitle" as the name attribute in the HTML
+                body: formData.get("body"),
+                media: formData.get("media"),
+                tags: [formData.get("tags")],
+                id: id, // Assign the id directly to postData.id
+            };
+
+            updatePost(postData);
+        });
     }
 }
-
