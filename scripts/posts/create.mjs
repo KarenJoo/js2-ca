@@ -1,14 +1,14 @@
 import { API_BASE_URL } from "../helpers/API.mjs";
-import { authFetch } from "./authFetch.mjs";
+import { authFetch, headers } from "./authFetch.mjs";
 
 const action = "/posts";
 const method = "POST";
 
 export async function createPost(postData) {
 
-  const createPostURL = `${API_BASE_URL}/posts`;
+  const createPostURL = `${API_BASE_URL}${action}`;
   console.log("Created a post:", postData);
-  
+
   try {
     const token = localStorage.getItem("accessToken");
     console.log("Access Token:", token);
