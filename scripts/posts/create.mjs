@@ -2,7 +2,7 @@ import { API_BASE_URL } from "../helpers/API.mjs";
 import { authFetch, headers } from "./authFetch.mjs";
 
 const action = "/posts";
-const method = "POST";
+const method = "post";
 
 export async function createPost(postData) {
 
@@ -15,12 +15,12 @@ export async function createPost(postData) {
 
     // for GET, UPDATE, PUT, DELETE
     const response = await authFetch(createPostURL, {
-      method: "POST",
+      method,
       body: JSON.stringify(postData),
     });
 
     if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
+        throw new Error(`HTTP error! response Status: ${response.status}`);
       }
   
       const createdPost = await response.json();

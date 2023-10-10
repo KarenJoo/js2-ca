@@ -4,6 +4,7 @@ import { authFetch, headers } from "../posts/authFetch.mjs";
 export function createPostListener() {
   const form = document.querySelector("#createPost");
 
+
   if (form) {
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
@@ -12,12 +13,13 @@ export function createPostListener() {
       const formData = new FormData(event.target);
 
       const postData = {
+
         title: formData.get("title"),
         body: formData.get("body"),
         media: formData.get("media"),
-        tags: formData.get("tags"),
+        tags: [formData.get("tags")],
       };
-
+      
       try {
         const response = await createPost(postData);
 
@@ -32,3 +34,4 @@ export function createPostListener() {
     });
   }
 }
+
