@@ -20,6 +20,7 @@ export function editPostListener() {
                 tags: [formData.get("tags")],
                 id: id, // Assign the id directly to postData.id
             };
+            
 
             updatePost(postData);
         });

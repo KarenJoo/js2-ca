@@ -1,11 +1,11 @@
-import * as listeners from "../helpers/barrel.mjs";
 import { createPost } from "../posts/create.mjs";
 import { updatePost } from "../posts/update.mjs";
-import { createPostListener } from "../helpers/barrel.mjs";
+import { createPostListener } from "../handlers/createPost.mjs"
+import {editPostListener} from "../handlers/editPost.mjs"
 const path = location.pathname;
 
 if (path.includes('/content/createPost.html')) {
-  listeners.createPostListener();
+  createPostListener();
 } else if (path.includes('/content/editPost.html')) {
-  listeners.editPostListener();
+  editPostListener();
 }
