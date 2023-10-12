@@ -5,16 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="SoMe Styles delete posts " content="The user can delete content" />
+    <meta name="SoMe Styles remove posts " content="The user can remove content" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <link rel="stylesheet" href="../dist/css/index.css" />
-    <script src="/scripts/handlers/createPost.mjs" type="module" defer></script>
     <script src="/scripts/handlers/index.mjs" type="module" defer></script>
-    <script src="/scripts/posts/create.mjs" type="module" defer></script>
+    <script src="/scripts/posts/remove.mjs" type="module" defer></script>
 
 
 
-    <title>SoMe Styles | Delete post</title>
+    <title>SoMe Styles | Remove post</title>
 </head>
 
 <body>
@@ -67,7 +66,7 @@
                             <h2>Delete post</h2>
                         </div>
 
-                        <form id="createPost" class="mb-5" method="POST" action="">
+                        <form id="removePost" class="mb-5" method="POST" action="">
                             <label for="title">Post Title</label>
                             <input class="form-control border-dark" id="title" type="text" name="title" required
                                 placeholder="Post title..." maxlength="30"></input>
@@ -78,13 +77,11 @@
                                     placeholder="Write your post here..."></textarea>
                             </div>
                             <div class="mb-3">
-                                <label for="media" class="form-label"></label>
-                                <label for="tags">Insert img from URL</label>
+                                <label for="media" class="form-label">Insert img from URL</label>
                                 <input class="form-control border-secondary mb-2" id="media" type="url" name="media"
                                     placeholder="Insert URL here..."></input>
                             </div>
-                            <label for="title" class="form-label"></label>
-                            <label for="tags">Tags</label>
+                            <label for="tags" class="form-label">Tags</label>
                             <input class="form-control border-secondary mb-2" id="tags" type="text" name="tags"
                                 placeholder="Insert tags..."></input>
 
