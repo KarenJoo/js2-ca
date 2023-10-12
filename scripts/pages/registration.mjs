@@ -37,8 +37,9 @@ export async function handleUserRegistration(event) {
     password: regPassword,
   };
 
-  console.log(profile);
+  localStorage.setItem("accessToken", JSON.stringify(profile));
 
+  console.log(profile);
   try {
     const response = await registerUser(profile);
 

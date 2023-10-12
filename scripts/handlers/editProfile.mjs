@@ -1,4 +1,4 @@
-import { handleUserRegistration } from "../pages/registration.mjs";
+import { getWithToken } from "../auth/token.mjs";
 import { registerUser } from "../helpers/API.mjs";
 import { updateProfile } from "../pages/updateProfile.mjs";
 import { getProfile } from "./getProfile.mjs";
@@ -7,19 +7,19 @@ export async function editProfile() {
 
 const form = document.querySelector("#editProfile");
 
-const url = new URL(location.href);
-
-const { name, email } = handleUserRegistration("profile");
 
 
 if (form) {
+    // pull name and email from local storage
+    const { name, email } = getWithToken("profile");
+    form.name.value = name;
+    form.email.value = email;
+
     const button = form.querySelector("button");
     button.disabled = true;
 
+    // await API request to get values
     const profile= await getProfile(name);
-
-    form.name.value = profile.name;
-    form.email.value = profile.email;
     form.banner.value = profile.banner;
     form.avatar.value = profile.avatar;
 
@@ -28,7 +28,7 @@ if (form) {
     form.addEventListener("submit", (event) => {
         event.preventDefault()
         const form = event.target;
-        const dataForm = new dataForm(form);
+        const formData = new formData(form);
         const profile = Object.fromEntries(FormData.entries())
     })
 

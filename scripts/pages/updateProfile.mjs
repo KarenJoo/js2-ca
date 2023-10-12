@@ -18,4 +18,4 @@ export async function updateProfile(profileData) {
     })
 
     return await response.json();
-}
+} 
