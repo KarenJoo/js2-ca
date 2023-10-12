@@ -9,9 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <link rel="stylesheet" href="../dist/css/index.css" />
     <script src="/scripts/handlers/editProfile.mjs" type="module" defer></script>
-    <script src="/scripts/pages/updateProfile.mjs" type="module" defer></script>
-
-
     <title>SoMe Styles | Edit profile </title>
 </head>
 
@@ -62,14 +59,13 @@
                                                 <h2>Edit profile</h2>
                                             </div>
 
-                                            <form id="editProfile" class="mb-5" method="POST"
-                                                action="/profile/index.html">
-                                                <label for="name">Name</label>
-                                                <input class="form-control border-dark mb-2" id="name" type="text"
-                                                    name="name" placeholder="" disabled></input>
-                                                <label for="email">Email</label>
-                                                <input class="form-control border-dark mb-2" id="email" type="email"
-                                                    name="email" placeholder="" disabled></input>
+                                            <form id="editProfile" class="mb-5" method="POST" action="">
+                                                <label for="profileName">Name</label>
+                                                <input class="form-control border-dark mb-2" id="profileName"
+                                                    type="text" name="profileName" placeholder="" disabled></input>
+                                                <label for="profileEmail">Email</label>
+                                                <input class="form-control border-dark mb-2" id="profileEmail"
+                                                    type="email" name="profileEmail" placeholder="" disabled></input>
 
                                                 <label for="banner">Banner</label>
                                                 <input class="form-control border-dark mb-2" id="banner" type="url"
@@ -84,9 +80,9 @@
 
                                                 <div class="d-grid gap-2 mb-2">
 
-                                                    <button id="editButton" class="btn btn-secondary" type="submit">
+                                                    <a href="/profile" class="btn btn-secondary" type="submit">
                                                         Edit profile
-                                                    </button>
+                                                        </button> </a>
                                                 </div>
                                             </form>
                                         </div>

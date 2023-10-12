@@ -23,3 +23,4 @@ export async function getProfile(name) {
 
     return await response.json();
 }
+
