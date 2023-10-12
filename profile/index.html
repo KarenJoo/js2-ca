@@ -68,9 +68,17 @@
             <div class="row align-items-center">
               <div class="d-flex justify-content-center align-items-center">
                 <!-- post btn -->
-                <a href="/content/createPost.html" class="btn btn-outline-secondary shadow-sm mb-5">
-                  New post
-                </a>
+                <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Create post
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/content/createPost.html">Create post</a></li>
+                    <li><a class="dropdown-item" href="/content/editPost.html">Update post</a></li>
+                    <li><a class="dropdown-item" href="/content/deletePost.html">Delete post</a></li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>

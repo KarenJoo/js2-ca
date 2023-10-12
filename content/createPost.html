@@ -33,7 +33,8 @@
                         <a class="btn text-primary shadow-sm mx-1" href="/register/index.html"
                             role="button">Register</a>
                         <!-- Profile and Feed Button -->
-                        <a class="btn btn-outline-primary shadow-sm mx-1" href="/profile/index.html" role="button">Profile</a>
+                        <a class="btn btn-outline-primary shadow-sm mx-1" href="/profile/index.html"
+                            role="button">Profile</a>
 
                         <a class="btn btn-outline-primary shadow-sm mx-1" href="/feed" role="button">Feed</a>
                     </div>
@@ -66,71 +67,69 @@
                             <h2>Create post</h2>
                         </div>
 
-                        <form id="createPost" class="mx-3" method="POST" action="">
-                                <label for="title">Post Title</label>
-                                <input class="form-control border-dark" id="title" type="text" name="title" required
-                                    placeholder="Post title..." maxlength="30"></input>
+                        <form id="createPost" class="mb-5" method="POST" action="">
+                            <label for="title">Post Title</label>
+                            <input class="form-control border-dark" id="title" type="text" name="title" required
+                                placeholder="Post title..." maxlength="30"></input>
 
-                                <div class="mb-3">
-                                    <label for="body" class="form-label"></label>
-                                    <textarea class="form-control border-secondary" id="body" name="body" rows="3"
-                                        required placeholder="Write your post here..."></textarea>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="media" class="form-label"></label>
-                                    <label for="tags">Insert img from URL</label>
-                                    <input class="form-control border-secondary mb-2" id="media" type="url" name="media"
-                                        placeholder="Insert URL here..."></input>
-                                </div>
-                                <label for="title" class="form-label"></label>
-                                <label for="tags">Tags</label>
-                                <input class="form-control border-secondary mb-2" id="tags" type="text" name="tags"
-                                    placeholder="Insert tags..."></input>
+                            <div class="mb-3">
+                                <label for="body" class="form-label"></label>
+                                <textarea class="form-control border-secondary" id="body" name="body" rows="3" required
+                                    placeholder="Write your post here..."></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="media" class="form-label"></label>
+                                <label for="tags">Insert img from URL</label>
+                                <input class="form-control border-secondary mb-2" id="media" type="url" name="media"
+                                    placeholder="Insert URL here..."></input>
+                            </div>
+                            <label for="title" class="form-label"></label>
+                            <label for="tags">Tags</label>
+                            <input class="form-control border-secondary mb-2" id="tags" type="text" name="tags"
+                                placeholder="Insert tags..."></input>
 
-                                <div class="d-grid gap-2 mb-2">
+                            <div class="d-grid gap-2 mb-2">
 
-                                    <button class="btn btn-secondary" type="submit">
-                                        Create Post
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
+                                <button class="btn btn-secondary" type="submit">
+                                    Create Post
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
+            </div>
 
 
 
-                <!-- Bottom navbar menu (@chatGPT) -->
-                <nav class="navbar navbar-bottom navbar-expand fixed-bottom navbar-light bg-secondary">
-                    <div class="container justify-content-around">
-                        <ul class="navbar-nav">
-                            <div class="icon-container d-flex align-items-center">
-                                <p
-                                    class="h6 copyright d-none d-md-block d-lg-block m-3 align-items-center text-primary">
-                                    &copy; 2023 Boho Styles
-                                </p>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/profile">
-                                        <i class="fas fa-home fa-lg fa-2x d-md-none d-lg-none text-primary"></i>
-                                    </a>
-                                </li>
+            <!-- Bottom navbar menu (@chatGPT) -->
+            <nav class="navbar navbar-bottom navbar-expand fixed-bottom navbar-light bg-secondary">
+                <div class="container justify-content-around">
+                    <ul class="navbar-nav">
+                        <div class="icon-container d-flex align-items-center">
+                            <p class="h6 copyright d-none d-md-block d-lg-block m-3 align-items-center text-primary">
+                                &copy; 2023 Boho Styles
+                            </p>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/profile">
+                                    <i class="fas fa-home fa-lg fa-2x d-md-none d-lg-none text-primary"></i>
+                                </a>
+                            </li>
 
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/content/createPost.html">
-                                        <i
-                                            class="post-icon fas fa-plus-circle fa-3x d-md-none d-lg-none text-primary"></i>
-                                    </a>
-                                </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/content/createPost.html">
+                                    <i class="post-icon fas fa-plus-circle fa-3x d-md-none d-lg-none text-primary"></i>
+                                </a>
+                            </li>
 
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                        <i class="fas fa-search fa-2x d-md-none d-lg-none text-primary"></i>
-                                    </a>
-                                </li>
-                            </div>
-                        </ul>
-                    </div>
-                </nav>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-search fa-2x d-md-none d-lg-none text-primary"></i>
+                                </a>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+            </nav>
         </main>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
