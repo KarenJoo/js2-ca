@@ -1,137 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-    />
-    <link rel="stylesheet" href="../dist/css/index.css" />
-    <script src="/scripts/pages/registration.mjs" type="module" defer></script>
 
-    <title>Sign up | Boho Styles</title>
-  </head>  
-  
-  <body class="bg-img min-vh-100 w-100">
-    <header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <link rel="stylesheet" href="../dist/css/index.css" />
+  <script src="/scripts/pages/registration.mjs" type="module" defer></script>
+
+  <title>Sign up | Boho Styles</title>
+</head>
+
+<body class="bg-img min-vh-100 w-100">
+  <header>
     <nav class="navbar mt-3">
     </nav>
     <div class="container">
-          <img class="logo img-fluid max-width mt-5" src="/img/logo-boho.png" alt="logo of Boho styles">
-</div>
-</header>
-<main>
+      <img class="logo img-fluid max-width mt-5" src="/img/logo-boho.png" alt="logo of Boho styles">
+    </div>
+  </header>
+  <main>
     <!-- form validation -->
     <div class="container mb-1">
-        <div class="row align-items-center justify-content-center">
-          <div class="col-12 justify-content-center align-items-center col-md-12">
-          </div>
-          <div class="col-12 justify-content-center col-md-12">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-12 justify-content-center align-items-center col-md-12">
+        </div>
+        <div class="col-12 justify-content-center col-md-12">
 
-            <!-- Sign in form Container -->
-      <div class="container">
-        <div class="row justify-content-center align-items-center min-vh-70">
-          <div class="col-12 col-md-10 mx-0">
-            <div class="form-container py-4 d-flex justify-content-center">
-              <div class="form-wrapper">
-                <h1 class="text-center form-title mb-2 text-dark">Sign up</h1>
-  
-                <!-- submission form data -->
-                <form id="regForm" action="/authentication" method="post" >               
-                  <p class="m-0 text-dark">Username</p>
-                  <div class="form-floating mb-3 text-dark opacity-50">
-                    <input
-                      type="text"
-                      class="form-control border-secondary"
-                      id="regUserName"
-                      value=""
-                      name="regUserName"
-                      placeholder="Your username"
-                      required
-                    />
-                    <!-- required field -->
-                    <label for="regUserName">Your username</label>
-                  </div>
-                  
-                  
-                <!-- Register e-mail -->
-              
-                  <p class="m-0 text-dark">E-mail</p>
-                  <div class="form-floating mb-1 text-dark opacity-50">
-                    <input
-                      type="email"
-                      class="form-control border-secondary bg-primary"
-                      id="regEmail"
-                      name="regEmail"
-                      value=""
-                      placeholder="email"
-                      required
-                    />
-                    <label for="regEmail">ex. username@stud.noroff.no</label>
-                    <div id="emailErrorMessage" class="d-none alert alert-danger">Email must be @noroff.no or @stud.noroff.no</div>
+          <!-- Sign in form Container -->
+          <div class="container">
+            <div class="row justify-content-center align-items-center min-vh-70">
+              <div class="col-12 col-md-10 mx-0">
+                <div class="form-container py-4 d-flex justify-content-center">
+                  <div class="form-wrapper">
+                    <h1 class="text-center form-title mb-2 text-dark">Sign up</h1>
+
+                    <!-- submission form data -->
+                    <form id="regForm" action="/authentication" method="post">
+                      <p class="m-0 text-dark">Username</p>
+                      <div class="form-floating mb-3 text-dark opacity-50">
+                        <input type="text" class="form-control border-secondary" id="regUserName" value=""
+                          name="regUserName" placeholder="Your username" required />
+                        <!-- required field -->
+                        <label for="regUserName">Your username</label>
+                      </div>
+
+
+                      <!-- Register e-mail -->
+
+                      <p class="m-0 text-dark">E-mail</p>
+                      <div class="form-floating mb-1 text-dark opacity-50">
+                        <input type="email" class="form-control border-secondary bg-primary" id="regEmail"
+                          name="regEmail" value="" placeholder="email" required />
+                        <label for="regEmail">ex. username@stud.noroff.no</label>
+                        <div id="emailErrorMessage" class="d-none alert alert-danger">Email must be @noroff.no or
+                          @stud.noroff.no</div>
+
+                      </div>
+
+                      <!-- Create password -->
+                      <p class="m-0 text-dar mt-2">Create password</p>
+                      <div class="form-floating mb-3 text-dark opacity-50">
+
+                        <input type="password" class="form-control border-secondary" id="regPassword" name="regPassword"
+                          value="" placeholder="minimum 8 characters" minlength="8" required />
+                        <!-- required min 8 characters -->
+                        <label for="regPassword">Create password</label>
+                      </div>
+
+                      <!-- error messages -->
+
+                      <!-- Success message -->
+                      <div id="successMessage" class="alert alert-success d-none" role="alert">
+                        Registration successful! You are now registered.
+                      </div>
+
+                      <!-- Unsuccessful message -->
+                      <div id="errorMessage" class="alert alert-danger d-none" role="alert">
+                        Registration failed. Please check your information and try again.
+                      </div>
+
+
+                      <div class="container d-flex align-items-center justify-content-center">
+
+                        <button type="submit" class="btn btn-sm btn-outline-dark px-4 py-2 shadow p-3 mb-2">
+                          Register new user
+                        </button>
+                      </div>
+                      <a href="/authentication" class="d-flex align-items-center justify-content-center text-dark">
+                        Log in
+                      </a>
+                    </form>
 
                   </div>
-                  
-                 <!-- Create password -->
-                  <p class="m-0 text-dar mt-2">Create password</p>
-                  <div class="form-floating mb-3 text-dark opacity-50">
-                    
-                    <input
-                      type="password"
-                      class="form-control border-secondary"
-                      id="regPassword"
-                      name="regPassword"
-                      value=""
-                      placeholder="minimum 8 characters"
-                      minlength="8"
-                      required
-                    />
-                    <!-- required min 8 characters -->
-                    <label for="regPassword">Create password</label>
-                  </div>
-
-                  <!-- error messages -->
-             
-                    <!-- Success message -->
-                    <div id="successMessage" class="alert alert-success d-none" role="alert">
-                      Registration successful! You are now registered.
-                    </div>
-                  
-                    <!-- Unsuccessful message -->
-                    <div id="errorMessage" class="alert alert-danger d-none" role="alert">
-                      Registration failed. Please check your information and try again.
-                    </div>
-                  
-                
-                     <div class="container d-flex align-items-center justify-content-center">
-  
-                  <button type="submit" class="btn btn-sm btn-outline-dark px-4 py-2 shadow p-3 mb-2">
-                    Register new user
-                  </button>
                 </div>
-                <a href="/authentication" class="d-flex align-items-center justify-content-center text-dark">
-                  Log in
-                </a>
-                </form>
-
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </main>
+  </main>
 </body>
 
-    <footer class="footer footer-expand fixed-bottom">
-      <div class="container">
-        <div class="d-flex justify-content-center align-items-center">
-          <p class="h6 text-primary my-5"> &copy; 2023 Boho Styles</p>
-        </div>
-      </div>
-    </footer>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-  
+<footer class="footer footer-expand">
+  <div class="container">
+    <div class="d-flex justify-content-center align-items-center">
+      <p class="h6 text-primary"> &copy; 2023 Boho Styles</p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
 </html>
