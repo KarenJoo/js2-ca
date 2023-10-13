@@ -1,4 +1,5 @@
-export function postTemplate(postData) {
+
+export function postTemplate(postData, isSinglePost) {
     const postContainer = document.createElement("div");
     postContainer.classList.add("post", "col-12", "col-sm-4", "mb-3");
 
@@ -19,13 +20,13 @@ export function postTemplate(postData) {
         post.appendChild(img);
     }
 
-    if (isClickable) {
+    if (isSinglePost) {
         postContainer.classList.add("clickable");
         postContainer.addEventListener('click', () => {
             window.location.href = `/single-post/index.html?id=${postData.id}`;
         });
 
-        // Display other information in single post view
+        // Display information in single post view
         const postBody = document.createElement("div");
         postBody.classList.add("post-body");
 

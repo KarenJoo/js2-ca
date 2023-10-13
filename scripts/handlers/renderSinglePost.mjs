@@ -1,18 +1,18 @@
-import { cardTemplate } from "../templates/post.mjs";
+import { postTemplate } from "../templates/post.mjs";
 
 function renderSinglePost(post) {
     const parentElement = document.getElementById("post");
     
-    // Use cardTemplate to generate the card structure and append it to the parent element
-    cardTemplate(post, true, parentElement);
+    // Use postTemplate to generate the post structure and append it to the parent element
+    postTemplate(post, true, parentElement);
 
-    // Now you can style the card as needed in renderSinglePost
-    const postTitle = document.getElementById("card-title");
-    const postBody = document.getElementById("card-body");
-    const postTags = document.getElementById("card-tags");
-    const postMedia = document.getElementById("card-media");
-    const postCreated = document.getElementById("card-created");
-    const postUpdated = document.getElementById("card-updated");
+    // Now you can style the post as needed in renderSinglePost
+    const postTitle = document.getElementById("post-title");
+    const postBody = document.getElementById("post-body");
+    const postTags = document.getElementById("post-tags");
+    const postMedia = document.getElementById("post-media");
+    const postCreated = document.getElementById("post-created");
+    const postUpdated = document.getElementById("post-updated");
 
     postTitle.textContent = post.title;
     postBody.textContent = post.body;

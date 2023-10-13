@@ -1,12 +1,11 @@
-
-import { API_BASE_URL } from "../helpers/API.mjs";
+import { getAllPosts } from "../helpers/API.mjs";
 import { authFetch } from "./authFetch.mjs";
 
-const action = "/posts";
+
 const method = "GET";
 
 export async function getPosts() {
-    const getPostsURL = `${API_BASE_URL}${action}`;
+    const getPostsURL = `${getAllPosts}`;
 
     try {
         const token = localStorage.getItem("accessToken");
@@ -15,9 +14,12 @@ export async function getPosts() {
         // for GET, UPDATE, PUT, DELETE
         const response = await authFetch(getPostsURL);
 
-        if (!response.ok) {
+         if (!response.ok) {
+            const errorDetails = await response.json();
+            console.error("Error details:", errorDetails);
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
+
 
         const getPosts = await response.json();
         console.log(getPosts);
@@ -30,33 +32,33 @@ export async function getPosts() {
     }
 }
 
-export async function getPost(id) {
-    if (!id) {
-        throw new Error("Get requires a postID");
-    }
+// export async function getPost(id) {
+//     if (!id) {
+//         throw new Error("Get requires a postID");
+//     }
 
-    const getPostURL = `${API_BASE_URL}${action}/${id}`;
+//     const getPostURL = `${API_BASE_URL}${action}/${id}`;
 
-    try {
-        const token = localStorage.getItem("accessToken");
-        console.log("Access Token:", token);
+//     try {
+//         const token = localStorage.getItem("accessToken");
+//         console.log("Access Token:", token);
 
-        // for GET, UPDATE, PUT, DELETE
-        const response = await authFetch(getPostURL);
+//         // for GET, UPDATE, PUT, DELETE
+//         const response = await authFetch(getPostURL);
 
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
+//         if (!response.ok) {
+//             throw new Error(`HTTP error! Status: ${response.status}`);
+//         }
 
-        const getPost = await response.json();
-        console.log(getPost);
+//         const getPost = await response.json();
+//         console.log(getPost);
 
-        return getPost;
+//         return getPost;
 
-    } catch (error) {
-        console.error("Error get post:", error.message);
-        throw error;
-    }
-}
+//     } catch (error) {
+//         console.error("Error get post:", error.message);
+//         throw error;
+//     }
+// }
 
 
