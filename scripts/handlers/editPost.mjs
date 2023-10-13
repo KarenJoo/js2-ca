@@ -14,11 +14,11 @@ export function editPostListener() {
             const formData = new FormData(event.target);
 
             const postData = {
-                title: formData.get("postTitle"), // Use "postTitle" as the name attribute in the HTML
+                title: formData.get("postTitle"), 
                 body: formData.get("body"),
                 media: formData.get("media"),
                 tags: [formData.get("tags")],
-                id: id, // Assign the id directly to postData.id
+                id: id, 
             };
             
 

@@ -22,18 +22,18 @@
 //     const card = cardTemplate(post);
 //     parent.appendChild(card);
 // });
-import { cardTemplate, renderCardTemplate, renderCardTemplates } from "../templates/post.mjs";
+import { postTemplate, renderPostTemplate, renderPostTemplates} from "../templates/post.mjs";
 import { getPosts } from "../posts/get.mjs";
 import { renderSinglePost } from "../handlers/renderSinglePost.mjs";
 
-export async function postTemp() {
+export async function postTemp(postData) {
     const posts = await getPosts();
-    const postContainer = document.querySelector('#post');
+    const postContainer = document.querySelector('#postContainer');
     postContainer.innerHTML = '';
 
     posts.forEach((post) => {
-        const card = cardTemplate(post, true);
-        postContainer.appendChild(card);
+        const post = postTemplate(post, true);
+        postContainer.appendChild(post);
     });
 }
 

@@ -1,13 +1,13 @@
-export function cardTemplate(postData, isClickable = false) {
-    const cardContainer = document.createElement("div");
-    cardContainer.classList.add("card", "col-12", "col-sm-4", "mb-3");
+export function postTemplate(postData) {
+    const postContainer = document.createElement("div");
+    postContainer.classList.add("post", "col-12", "col-sm-4", "mb-3");
 
     const row = document.createElement("div");
     row.classList.add("row");
 
-    const card = document.createElement("div");
-    card.classList.add("card", "pr-2", "pl-2", "col");
-    card.dataset.postId = postData.id;
+    const post = document.createElement("div");
+    post.classList.add("post", "pr-2", "pl-2", "col");
+    post.dataset.postId = postData.id;
 
     if (postData.media) {
         // image/media
@@ -16,42 +16,42 @@ export function cardTemplate(postData, isClickable = false) {
         img.src = postData.media;
         img.alt = `Post Image from ${postData.title}`;
 
-        card.appendChild(img);
+        post.appendChild(img);
     }
 
     if (isClickable) {
-        cardContainer.classList.add("clickable");
-        cardContainer.addEventListener('click', () => {
+        postContainer.classList.add("clickable");
+        postContainer.addEventListener('click', () => {
             window.location.href = `/single-post/index.html?id=${postData.id}`;
         });
 
         // Display other information in single post view
-        const cardBody = document.createElement("div");
-        cardBody.classList.add("card-body");
+        const postBody = document.createElement("div");
+        postBody.classList.add("post-body");
 
-        const cardTitle = document.createElement("h2");
-        cardTitle.classList.add("card-title");
-        cardTitle.innerText = postData.title;
+        const postTitle = document.createElement("h2");
+        postTitle.classList.add("post-title");
+        postTitle.innerText = postData.title;
 
-        const cardText = document.createElement("p");
-        cardText.classList.add("card-text");
-        cardText.innerText = postData.body;
+        const postText = document.createElement("p");
+        postText.classList.add("post-text");
+        postText.innerText = postData.body;
 
         const lastUpdated = document.createElement("p");
-        lastUpdated.classList.add("card-text", "text-muted");
+        lastUpdated.classList.add("post-text", "text-muted");
         lastUpdated.innerText = `Last updated ${timeAgo(postData.updated)} ago`;
 
         // append to post body
-        cardBody.appendChild(cardTitle);
-        cardBody.appendChild(cardText);
-        cardBody.appendChild(lastUpdated);
+        postBody.appendChild(postTitle);
+        postBody.appendChild(postText);
+        postBody.appendChild(lastUpdated);
 
-        card.appendChild(cardBody);
+        post.appendChild(postBody);
     }
 
-    cardContainer.appendChild(card);
+    postContainer.appendChild(post);
 
-    return cardContainer;
+    return postContainer;
 }
 
 // function to calculate time (chatGPT)
@@ -80,10 +80,10 @@ export function timeAgo(dateString) {
     }
 }
 
-export function renderCardTemplate(postData, parent) {
-    parent.append(cardTemplate(postData));
+export function renderPostTemplate(postData, parent) {
+    parent.append(postTemplate(postData));
 }
 
-export function renderCardTemplates(postDataList, parent) {
-    parent.append(...postDataList.map(cardTemplate));
+export function renderPostTemplates(postDataList, parent) {
+    parent.append(...postDataList.map(postTemplate));
 }
