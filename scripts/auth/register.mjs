@@ -13,10 +13,12 @@ const response = await fetch (registerURL, {
         "Content-Type": "application/json"
     },
     method,
-    body
+    body,
 })
 
 const result = await response.json()
+alert("You are now registered!")
 return result
+
 
 }

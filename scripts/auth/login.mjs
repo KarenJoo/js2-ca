@@ -14,7 +14,7 @@ const response = await fetch (loginURL, {
         "Content-Type": "application/json"
     },
     method,
-    body
+    body,
 })
 
 const { accessToken, ...user } = await response.json()
@@ -23,6 +23,9 @@ const { accessToken, ...user } = await response.json()
 storage.save("token", accessToken)
 
 storage.save("profile", user)
+
+alert("You are now logged in!")
+
 }
 
 

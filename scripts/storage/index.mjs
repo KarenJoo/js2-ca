@@ -10,6 +10,7 @@ export function load(key) {
     return null
 }
 }
+
 export function remove(key) {
     localStorage.removeItem(key);
 }
