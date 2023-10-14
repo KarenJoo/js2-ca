@@ -1,4 +1,5 @@
 import { API_BASE_URL } from "../helpers/API.mjs";
+import * as storage from "../storage/index.mjs"
 
 const action = "/auth/login";
 const method = "post";
@@ -16,7 +17,13 @@ const response = await fetch (loginURL, {
     body
 })
 
-const result = await response.json()
-console.log(result);
+const { accessToken, ...user } = await response.json()
 
+// save token and user profile data separately
+storage.save("token", accessToken)
+
+storage.save("profile", user)
 }
+
+
+
