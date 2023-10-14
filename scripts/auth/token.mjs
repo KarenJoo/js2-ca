@@ -5,6 +5,7 @@ export function getWithToken() {
     if (!token) {
       throw new Error("Token not available");
     }
+    console.log("Retrieved Token:", token);  
 
     return token;
   } catch (error) {

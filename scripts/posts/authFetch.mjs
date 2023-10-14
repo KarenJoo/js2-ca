@@ -2,7 +2,7 @@ import { getWithToken } from "../auth/token.mjs";
 
 export async function headers() {
   try {
-    const token = await getWithToken("profile");
+    const token = getWithToken("profile");
 
     if (!token) {
       throw new Error("Token not available");
@@ -27,10 +27,16 @@ export async function authFetch(url, options = {}) {
       ...options,
       headers: headersObject,
     });
-
-    return response;
-  } catch (error) {
-    console.error("Error authenticated request:", error.message);
-    throw error;
+    if (!response.ok) {
+      const errorDetails = await response.json();
+      console.error("Error details:", errorDetails);
+      throw new Error(`HTTP error! Status: ${response.status}, Details: ${JSON.stringify(errorDetails)}`);
   }
+
+  return response;
+} catch (error) {
+  console.error("Error authenticated request:", error.message);
+  throw error;
 }
+}
+

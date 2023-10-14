@@ -2,15 +2,19 @@ import { postTemplate, renderPostTemplate, renderPostTemplates} from "../templat
 import { getPosts } from "../posts/get.mjs";
 import { renderSinglePost } from "../handlers/renderSinglePost.mjs";
 
-export async function postTemp(postData) {
-    const posts = await getPosts();
-    const postContainer = document.querySelector('#postContainer');
-    postContainer.innerHTML = '';
+export async function postTemp() {
+    try {
+        const posts = await getPosts();
+        const postContainer = document.querySelector('#postContainer');
+        postContainer.innerHTML = '';
 
-    posts.forEach((post) => {
-        const postElement = postTemplate(post, true);
-        postContainer.appendChild(post);
-    });
+        posts.forEach((post) => {
+            const renderedPost = postTemplate(post, true);
+            postContainer.appendChild(renderedPost);
+        });
+    } catch (error) {
+        console.error("Error rendering posts:", error.message);
+    }
 }
 
 postTemp();

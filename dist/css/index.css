@@ -11483,4 +11483,12 @@ textarea.form-control-lg {
   opacity: 0.5;
 }
 
+.message {
+  display: none;
+}
+
+input:valid + .message {
+  display: block;
+}
+
 /*# sourceMappingURL=index.css.map */
