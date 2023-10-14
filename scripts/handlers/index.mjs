@@ -1,12 +1,11 @@
 import { setRegisterFormListener } from "./registration.mjs";
+import { setLoginFormListener } from "./login.mjs";
 
 
 const path = location.pathname;
 
-if (path.includes('/content/createPost.html')) {
-  createPostListener();
-} else if (path.includes('/content/editPost.html')) {
-  editPostListener();
-}
 
-setRegisterFormListener();
+if (path === '/login/') {
+  setLoginFormListener()
+} else if (path === '/register/')
+setRegisterFormListener()

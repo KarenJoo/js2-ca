@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="../dist/css/index.css" />
   <script src="/scripts/handlers/index.mjs" type="module" defer></script>
 
-  <title>Sign up | Boho Styles</title>
+  <title>Register | Boho Styles</title>
 </head>
 
 <body class="bg-img min-vh-100 w-100">
@@ -34,17 +34,17 @@
               <div class="col-12 col-md-10 mx-0">
                 <div class="form-container py-4 d-flex justify-content-center">
                   <div class="form-wrapper">
-                    <h1 class="text-center form-title mb-2 text-dark">Sign up</h1>
+                    <h1 class="text-center form-title mb-2 text-dark">Register</h1>
 
                     <!-- submission form data -->
                     <form id="regForm">
 
-                      <p class="m-0 text-dark">Your user name</p>
+                      <p class="m-0 text-dark">User name</p>
                       <div class="form-floating mb-3 text-dark opacity-50">
                         <input type="text" class="form-control border-secondary" id="name" pattern="^[\w]+$"
                           title="User name must contain lower case and upper case letters, numbers and underscore (_) ex. userName_123"
                           name="name" placeholder="User name" required />
-                        <label for="name">Your user name</label>
+                        <label for="name">User name</label>
                       </div>
 
 
@@ -86,26 +86,13 @@
                         <label for="banner">URL</label>
                       </div>
 
-
-
-                      <!-- Success message -->
-                      <div id="successMessage" class="alert alert-success d-none text-primary" role="alert">
-                        Registration successful! You are now registered.
-                      </div>
-
-                      <!-- Unsuccessful message -->
-                      <div id="errorMessage" class="alert alert-danger d-none" role="alert">
-                        Registration failed. Please check your information and try again.
-                      </div>
-
-
                       <div class="container d-flex align-items-center justify-content-center">
 
                         <button type="submit" class="btn btn-sm btn-outline-dark px-4 py-2 shadow p-3 mb-2">
                           Register
                         </button>
                       </div>
-                      <a href="/authentication" class="d-flex align-items-center justify-content-center text-dark">
+                      <a href="/login/" class="d-flex align-items-center justify-content-center text-dark">
                         Log in
                       </a>
                     </form>
