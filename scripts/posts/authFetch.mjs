@@ -9,7 +9,7 @@ export async function headers() {
   };
 }
 
-export async function authFetch(url, options) {
+export async function authFetch(url, options = {}) {
   try {
     const response = await fetch(url, {
       ...options,
