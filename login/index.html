@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
   <link rel="stylesheet" href="/dist/css/index.css" />
-  <script src="../scripts/pages/login.mjs" type="module" defer></script>
+  <script src="../scripts/handlers/index.mjs" type="module" defer></script>
   <title> SoMe Styles | Login </title>
 </head>
 
@@ -26,54 +26,48 @@
         <div class="col-12 justify-content-center align-items-center col-md-12">
         </div>
         <div class="col-12 justify-content-center col-md-12">
-          <!-- Form Container -->
+
+          <!-- Sign in form Container -->
           <div class="container">
             <div class="row justify-content-center align-items-center min-vh-70">
               <div class="col-12 col-md-10 mx-0">
                 <div class="form-container py-4 d-flex justify-content-center">
                   <div class="form-wrapper">
-                    <h1 class="text-center form-title mb-2 text-dark">Log in</h1>
+                    <h1 class="text-center form-title mb-2 text-dark">Login</h1>
 
                     <!-- submission form data -->
-                    <form action="/profile" method="post" id="loginForm">
-                      <p class="m-0 text-dark">Username</p>
-                      <div class="form-floating mb-3 text-dark opacity-50">
-                        <input type="text" class="form-control border-secondary" id="loginUser" value=""
-                          name="loginUser" placeholder="Username" required />
-                        <!-- required field -->
-                        <label for="loginUser">Username</label>
+                    <form id="loginForm">
 
-                      </div>
-                      <p class="m-0 text-dark">E-mail adress</p>
+                      <!-- e-mail -->
+                      <p class="m-0 text-dark">E-mail</p>
                       <div class="form-floating mb-1 text-dark opacity-50">
-                        <input type="email" class="form-control border-secondary bg-primary " id="loginEmail"
-                          name="email" placeholder="name@example.com" required />
-                        <label for="email ">Email address</label>
+                        <input type="email" class="form-control border-secondary bg-primary" id="email" name="email"
+                          placeholder="email" pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
+                          title="Only @(stud.)noroff.no domain can register" required />
+                        <label for="email">Ex. username@stud.noroff.no</label>
                       </div>
-                      <p class="m-0 text-dark">Password</p>
+
+
+                      <!-- password -->
+                      <p class="m-0 text-dar mt-2">Password</p>
                       <div class="form-floating mb-3 text-dark opacity-50">
 
-                        <input type="password" class="form-control border-secondary text-dark" id="loginPassword"
-                          name="password" placeholder="minimum 8 characters" minlength="8" required />
-                        <!-- required min 8 characters -->
+                        <input type="password" class="form-control border-secondary" id="password" name="password"
+                          placeholder="minimum 8 characters" minlength="8" required />
                         <label for="password">Password</label>
                       </div>
 
-                      <!-- Unsuccessful message -->
-                      <div id="loginError" class="alert alert-danger d-none" role="alert">
-                        Login failed. Please login with a registered user.
-                      </div>
-
                       <div class="container d-flex align-items-center justify-content-center">
-                        <button type="submit" class="btn btn-sm btn-outline-dark px-4 py-1 shadow p-3 mb-2 mt-4">
-                          Log in
-                        </button>
 
+                        <button type="submit" class="btn btn-sm btn-outline-dark px-4 py-2 shadow p-3 mb-2">
+                          Login
+                        </button>
                       </div>
-                      <a href="/register/index.html">
-                        <p class="d-flex align-items-center justify-content-center text-dark">Register here</p>
+                      <a href="/register" class="d-flex align-items-center justify-content-center text-dark">
+                        Register
                       </a>
                     </form>
+
                   </div>
                 </div>
               </div>

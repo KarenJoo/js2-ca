@@ -7,9 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
   <link rel="stylesheet" href="../dist/css/index.css" />
-  <script src="/scripts/pages/registration.mjs" type="module" defer></script>
+  <script src="/scripts/handlers/index.mjs" type="module" defer></script>
 
-  <title>Sign up | Boho Styles</title>
+  <title>Register | Boho Styles</title>
 </head>
 
 <body class="bg-img min-vh-100 w-100">
@@ -34,61 +34,65 @@
               <div class="col-12 col-md-10 mx-0">
                 <div class="form-container py-4 d-flex justify-content-center">
                   <div class="form-wrapper">
-                    <h1 class="text-center form-title mb-2 text-dark">Sign up</h1>
+                    <h1 class="text-center form-title mb-2 text-dark">Register</h1>
 
                     <!-- submission form data -->
-                    <form id="regForm" action="/authentication" method="post">
-                      <p class="m-0 text-dark">Username</p>
+                    <form id="regForm">
+
+                      <p class="m-0 text-dark">User name</p>
                       <div class="form-floating mb-3 text-dark opacity-50">
-                        <input type="text" class="form-control border-secondary" id="regUserName" value=""
-                          name="regUserName" placeholder="Your username" required />
-                        <!-- required field -->
-                        <label for="regUserName">Your username</label>
+                        <input type="text" class="form-control border-secondary" id="name" pattern="^[\w]+$"
+                          title="User name must contain lower case and upper case letters, numbers and underscore (_) ex. userName_123"
+                          name="name" placeholder="User name" required />
+                        <label for="name">User name</label>
                       </div>
 
 
                       <!-- Register e-mail -->
-
                       <p class="m-0 text-dark">E-mail</p>
                       <div class="form-floating mb-1 text-dark opacity-50">
-                        <input type="email" class="form-control border-secondary bg-primary" id="regEmail"
-                          name="regEmail" value="" placeholder="email" required />
-                        <label for="regEmail">ex. username@stud.noroff.no</label>
-                        <div id="emailErrorMessage" class="d-none alert alert-danger">Email must be @noroff.no or
-                          @stud.noroff.no</div>
-
+                        <input type="email" class="form-control border-secondary bg-primary" id="email" name="email"
+                          placeholder="email" pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
+                          title="Only @(stud.)noroff.no domain can register" required />
+                        <label for="email">ex. username@stud.noroff.no</label>
                       </div>
+
 
                       <!-- Create password -->
                       <p class="m-0 text-dar mt-2">Create password</p>
                       <div class="form-floating mb-3 text-dark opacity-50">
 
-                        <input type="password" class="form-control border-secondary" id="regPassword" name="regPassword"
-                          value="" placeholder="minimum 8 characters" minlength="8" required />
-                        <!-- required min 8 characters -->
-                        <label for="regPassword">Create password</label>
+                        <input type="password" class="form-control border-secondary" id="password" name="password"
+                          placeholder="minimum 8 characters" minlength="8" required />
+                        <label for="password">Create password</label>
                       </div>
 
-                      <!-- error messages -->
 
-                      <!-- Success message -->
-                      <div id="successMessage" class="alert alert-success d-none" role="alert">
-                        Registration successful! You are now registered.
+                      <!-- Banner -->
+                      <p class="m-0 text-dar mt-2">Banner</p>
+                      <div class="form-floating mb-3 text-dark opacity-50">
+
+                        <input type="url" class="form-control border-secondary" id="banner" name="banner" value=""
+                          placeholder="Url" />
+                        <label for="banner">URL</label>
                       </div>
 
-                      <!-- Unsuccessful message -->
-                      <div id="errorMessage" class="alert alert-danger d-none" role="alert">
-                        Registration failed. Please check your information and try again.
-                      </div>
+                      <!-- Avatar -->
+                      <p class="m-0 text-dar mt-2">Avatar</p>
+                      <div class="form-floating mb-3 text-dark opacity-50">
 
+                        <input type="url" class="form-control border-secondary" id="avatar" name="avatar" value=""
+                          placeholder="URL" />
+                        <label for="banner">URL</label>
+                      </div>
 
                       <div class="container d-flex align-items-center justify-content-center">
 
                         <button type="submit" class="btn btn-sm btn-outline-dark px-4 py-2 shadow p-3 mb-2">
-                          Register new user
+                          Register
                         </button>
                       </div>
-                      <a href="/authentication" class="d-flex align-items-center justify-content-center text-dark">
+                      <a href="/login/" class="d-flex align-items-center justify-content-center text-dark">
                         Log in
                       </a>
                     </form>

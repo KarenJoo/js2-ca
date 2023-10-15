@@ -1,35 +1,31 @@
 import { API_BASE_URL } from "../helpers/API.mjs";
 import { authFetch } from "./authFetch.mjs";
 
+
 const action = "/posts";
-const method = "DELETE";
+const method = "DELETE"; 
 
-export async function removePost(id) {
-    if (!id) {
-        throw new Error("Deleting a post requires a postID");
+export async function removePost(postData) {
+  if (postData.id) {
+    throw new Error("Deleting a post requires a postID");
+  }
+  const removePostURL = `${API_BASE_URL}${action}/${postData.id}`;
+
+  try {
+    const response = await authFetch(removePostURL, {
+      method
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
     }
-    const updatePostURL = `${API_BASE_URL}${action}/${id}`;
 
-    try {
-        const token = localStorage.getItem("accessToken");
-        console.log("Access Token:", token);
-
-        // for GET, UPDATE, PUT, DELETE
-        const response = await authFetch(updatePostURL, {
-            method,
-        });
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-
-        const updatePost = await response.json();
-        console.log(updatePost);
-
-        return updatePost;
-
-    } catch (error) {
-        console.error("Error deleting post:", error.message);
-        throw error;
-    }
+   return await response.json();
+   
+   
+  } catch (error) {
+    console.error("Error deleting post:", error.message);
+    throw error;
+  }
 }
+

@@ -8,30 +8,31 @@
   <meta name="SoMe Styles Feed " content="The feed page for SoMe Styles" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
   <link rel="stylesheet" href="../dist/css/index.css" />
-  <script src="/scripts/posts/get.mjs" type="module" defer></script>
   <script src="/scripts/pages/feedPosts.mjs" type="module" defer></script>
   <title>SoMe Styles | Feed page</title>
 </head>
+<header>
 
-<body class="bg-primary">
-  <nav class="navbar navbar-expand-lg bg-secondary shadow">
-    <div class="container">
-      <a class="navbar-brand" href="/profile/">
-        <img src="../img/logo-boho.png" alt="logo boho styles" class="img-fluid" width="150px" height="auto" />
-      </a>
-      <div class="ml-auto d-flex align-items-center">
-        <!-- login and register Button -->
-        <a class="btn shadow-sm mx-1 text-primary" href="/authentication/index.html" role="button">Login</a>
-        <a class="btn text-primary shadow-sm mx-1" href="/register/index.html" role="button">Register</a>
-        <!-- Feed and profile Button -->
-        <a class="btn btn-outline-primary shadow-sm mx-1" href="../profile/index.html" role="button">Profile</a>
+  <body class="bg-primary">
+    <nav class="navbar navbar-expand-lg bg-secondary shadow">
+      <div class="container">
+        <a class="navbar-brand" href="/profile/">
+          <img src="../img/logo-boho.png" alt="logo boho styles" class="img-fluid" width="150px" height="auto" />
+        </a>
+        <div class="ml-auto d-flex align-items-center">
+          <!-- login and register Button -->
+          <a class="btn shadow-sm mx-1 text-primary" href="/login" role="button">Login</a>
+          <a class="btn text-primary shadow-sm mx-1" href="/register" role="button">Register</a>
+          <!-- Feed and profile Button -->
+          <a class="btn btn-outline-primary shadow-sm mx-1" href="/profile" role="button">Profile</a>
 
-        <a class="btn-profile btn btn-outline-light d-flex disabled shadow-sm" aria-disabled="true" role="button"
-          data-bs-toggle="button">Feed</a>
+          <a class="btn-profile btn btn-outline-light d-flex disabled shadow-sm" aria-disabled="true" role="button"
+            data-bs-toggle="button">Feed</a>
+        </div>
       </div>
-    </div>
-  </nav>
-
+    </nav>
+</header>
+<main>
   <!-- search bar -->
   <div class="container-fluid d-flex align-items-center justify-content-center mt-3">
     <div class="input-group mx-1">
@@ -41,8 +42,8 @@
         Sort Options
       </button>
       <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Username</a></li>
-        <li><a class="dropdown-item" href="#">Newest posts</a></li>
+        <li><a class="dropdown-item">Username</a></li>
+        <li><a class="dropdown-item">Newest posts</a></li>
       </ul>
       <button class="btn btn-outline-secondary btn-sm" type="submit">
         Search
@@ -51,108 +52,19 @@
   </div>
 
   <!-- posts section -->
-  <div id="post" class="container-fluid mb-5 mt-5">
-    <div class="row">
-      <div class="col-12 col-sm-4 mb-3">
-        <div class="card pr-2 pl-2">
+  <div id="postContainer" class="container-fluid mb-4 mt-4">
+        <div id="post" class="row pr-2 pl-2 mx-3">
           <img src="../img/post-1.jpg" class="img-thumbnail" alt="post image 1" />
-          <div class="card-body">
-            <h5 class="card-title">Post title 1</h5>
-            <p class="card-text text-truncate">
+          <div class="post-body">
+            <h5 class="post-title">Post title 1</h5>
+            <p class="post-text text-truncate">
               This is a wider card with supporting text below as a natural
               lead-in to additional content. This content is a little bit
               longer.
             </p>
-            <p class="card-text">
+            <p class="post-text">
               <small class="text-muted">Last updated 3 mins ago</small>
             </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-sm-4 mb-3">
-        <div class="card pr-2 pl-2">
-          <img src="../img/post-1.jpg" class="img-thumbnail" alt="post image 2" />
-          <div class="card-body">
-            <h5 class="card-title">Post title 2</h5>
-            <p class="card-text text-truncate">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
-            </p>
-            <p class="card-text">
-              <small class="text-muted">Last updated 3 mins ago</small>
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-sm-4 mb-3">
-        <div class="card pr-2 pl-2">
-          <img src="../img/post-1.jpg" class="img-thumbnail" alt="post image 4" />
-          <div class="card-body">
-            <h5 class="card-title">Post title 3</h5>
-            <p class="card-text text-truncate">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
-            </p>
-            <p class="card-text">
-              <small class="text-muted">Last updated 9 mins ago</small>
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-sm-4 mb-3">
-        <div class="card pr-2 pl-2">
-          <img src="../img/post-1.jpg" class="img-thumbnail" alt="post image 4" />
-          <div class="card-body">
-            <h5 class="card-title">Post title 4</h5>
-            <p class="card-text text-truncate">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
-            </p>
-            <p class="card-text">
-              <small class="text-muted">Last updated 1 day ago</small>
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-sm-4 mb-3">
-        <div class="card pr-2 pl-2">
-          <img src="../img/post-1.jpg" class="img-thumbnail" alt="post image 5" />
-          <div class="card-body">
-            <h5 class="card-title">Post title 5</h5>
-            <p class="card-text text-truncate">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
-            </p>
-            <p class="card-text">
-              <small class="text-muted">Last updated 3 days ago</small>
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-sm-4 mb-3">
-        <div class="card pr-2 pl-2">
-          <img src="../img/post-1.jpg" class="img-thumbnail" alt="post image 1" />
-          <div class="card-body">
-            <h5 class="card-title">Post title 6</h5>
-            <p class="card-text text-truncate">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
-            </p>
-            <p class="card-text">
-              <small class="text-muted">Last updated 4 days ago</small>
-            </p>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -186,10 +98,10 @@
       </ul>
     </div>
   </nav>
+</main>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
 
 </html>

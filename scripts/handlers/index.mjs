@@ -1,11 +1,28 @@
-import { createPost } from "../posts/create.mjs";
-import { updatePost } from "../posts/update.mjs";
-import { createPostListener } from "../handlers/createPost.mjs"
-import {editPostListener} from "../handlers/editPost.mjs"
+import { setRegisterFormListener } from "./registration.mjs";
+import { setLoginFormListener } from "./login.mjs";
+import { postTemplate } from "../templates/post.mjs";
+import { renderPostTemplates } from "../templates/post.mjs";
+import * as postMethods from "../posts/index.mjs";
+
 const path = location.pathname;
 
-if (path.includes('/content/createPost.html')) {
-  createPostListener();
-} else if (path.includes('/content/editPost.html')) {
-  editPostListener();
+
+if (path === '/login/') {
+  setLoginFormListener()
+} else if (path === '/register/') {
+setRegisterFormListener()
 }
+
+// async function testTemplate() {
+//   const posts = await postMethods.getPosts();
+//   console.log(posts)
+//   const post = posts.pop();
+//   const container = document.querySelector("#post");
+//   container.innerHTML = "";
+//   // Render new post template
+//   renderPostTemplates(posts, container);
+// }
+
+// testTemplate();
+
+
