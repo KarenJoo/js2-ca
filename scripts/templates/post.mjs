@@ -2,7 +2,7 @@ import { timeAgo } from "../posts/timeAgo.mjs";
 
 export function postTemplate(postData, isClickable = false) {
     const postContainer = document.createElement("div");
-    postContainer.classList.add("col-12", "col-md-4", "mb-3"); // Use the entire width on small screens, 1/3 on medium screens
+    postContainer.classList.add("col-12", "col-md-4", "mb-2");
     const post = document.createElement("div");
     post.classList.add("card", "mb-3", "mx-1", "shadow-sm", "h-100");
 
