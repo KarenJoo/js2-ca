@@ -26,4 +26,3 @@ setRegisterFormListener()
 // testTemplate();
 
 
-console.log('hello')

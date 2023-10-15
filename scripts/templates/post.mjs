@@ -9,7 +9,7 @@ export function postTemplate(postData, isClickable = false) {
     const img = document.createElement("img");
     img.classList.add("img-thumbnail");
 
-    // Set the image source to the post's media or a default image
+    // Set post's media > if not replace with image
     img.src = postData.media || "../img/post-1.jpg";
     img.alt = `Post Image from ${postData.title}`;
 
@@ -38,14 +38,19 @@ export function postTemplate(postData, isClickable = false) {
     postContainer.appendChild(post);
 
     if (isClickable) {
-        postContainer.classList.add("clickable");
-        postContainer.addEventListener('click', () => {
-            window.location.href = `/post/index.html?id=${postData.id}`;
+        postContainer.addEventListener("click", () => {
+          window.location.href = `/post/index.html?id=${postData.id}`;
         });
-    }
-
+        postContainer.style.cursor = "pointer";
+      }
+    
     return postContainer;
 }
+
+export function renderSinglePostTemplate(postData, parent) {
+    parent.append(postTemplate(postData))
+}
+
 export function renderPostTemplates(postDataList, parent, isClickable = false) {
     parent.append(...postDataList.map(postData => postTemplate(postData, isClickable)));
 }

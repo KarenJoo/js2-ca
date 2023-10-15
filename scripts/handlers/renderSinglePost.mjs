@@ -1,4 +1,5 @@
 import { postTemplate } from "../templates/post.mjs";
+import { getPost } from "../posts/get.mjs";
 
 function renderSinglePost(post) {
     const parentElement = document.getElementById("post");
