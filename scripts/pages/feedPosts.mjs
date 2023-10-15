@@ -1,24 +1,17 @@
-import { postTemplate, renderPostTemplate, renderPostTemplates} from "../templates/post.mjs";
-import { getPosts } from "../posts/get.mjs";
-import { renderSinglePost } from "../handlers/renderSinglePost.mjs";
-
-export async function postTemp() {
-    try {
-        const posts = await getPosts();
-        const postContainer = document.querySelector('#postContainer');
-        postContainer.innerHTML = '';
-
-        posts.forEach((post) => {
-            const renderedPost = postTemplate(post, true);
-            postContainer.appendChild(renderedPost);
-        });
-    } catch (error) {
-        console.error("Error rendering posts:", error.message);
-    }
-}
-
-postTemp();
+import { postTemplate } from "../templates/post.mjs";
+import { renderPostTemplates } from "../templates/post.mjs";
+import * as postMethods from "../posts/index.mjs";
 
 
-// /singlePost.html?id=${post.id}`;
+async function testTemplate() {
+    const posts = await postMethods.getPosts();
+    console.log(posts)
+    const post = posts.pop();
+    const container = document.querySelector("#post");
+    container.innerHTML = "";
+    // Render new post template
+    renderPostTemplates(posts, container);
+  }
+  
+  testTemplate();
 
