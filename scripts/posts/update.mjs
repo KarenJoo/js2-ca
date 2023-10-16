@@ -6,9 +6,10 @@ const action = "/posts";
 const method = "PUT"; 
 
 export async function updatePost(postData) {
-  if (postData.id) {
+  if (!postData.id) {
     throw new Error("Update post requires a postID");
   }
+
   const updatePostURL = `${API_BASE_URL}${action}/${postData.id}`;
 
   try {
@@ -21,12 +22,9 @@ export async function updatePost(postData) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
 
-   return await response.json();
-   
-   
+    return await response.json();
   } catch (error) {
     console.error("Error updating post:", error.message);
     throw error;
   }
 }
-
