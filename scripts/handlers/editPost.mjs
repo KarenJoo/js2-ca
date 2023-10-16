@@ -27,7 +27,7 @@ export function updatePostListener() {
           await updatePost(postData);
           console.log("Post updated successfully");
   
-          // Redirect to the updated post
+          
           window.location.href = "/feed";
 
         } catch (error) {
