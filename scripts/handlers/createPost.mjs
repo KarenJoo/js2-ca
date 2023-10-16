@@ -1,7 +1,6 @@
 import { createPost } from "../posts/create.mjs";
 
 export function createPostListener() {
-  console.log("createPostListener triggered");
 
   const form = document.querySelector("#createPost");
   console.log("Form element:", form);
@@ -22,6 +21,9 @@ export function createPostListener() {
       try {
         const response = await createPost(postData);
         console.log("Post created successfully:", response);
+
+        window.location.href = "/feed";
+        
       } catch (error) {
         console.error("Error creating post:", error.message);
         if (error.response) {
