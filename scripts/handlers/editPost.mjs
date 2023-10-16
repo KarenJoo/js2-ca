@@ -12,19 +12,19 @@ export function updatePostListener() {
         console.log("Post success!");
   
         const formData = new FormData(form);
-        const post = Object.fromEntries(formData.entries());
-        post.id = id;
+
   
         const postData = {
           title: formData.get("title"),
           body: formData.get("body"),
           media: formData.get("media"),
           tags: [formData.get("tags")],
-          id: post.id,
+         
         };
-  
+        
+        console.log(postData); 
         try {
-          await updatePost(postData);
+          await updatePost(id, postData);
           console.log("Post updated successfully");
   
           

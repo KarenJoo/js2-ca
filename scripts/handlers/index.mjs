@@ -20,11 +20,13 @@ setRegisterFormListener()
     updatePostListener()
     }
 
-  // updatePost({
-  //   id: 7509,
-  //   title: "new update",
-  //   body: "please work"
-  // })
+  updatePost({
+    id: 7508,
+    title: "can you see my",
+    body: "update",
+    media: "https://cdn.pixabay.com/photo/2021/01/25/07/04/hearts-5947464_1280.png",
+    tags: "hello"
+  })
 // async function testTemplate() {
 //   const posts = await postMethods.getPosts();
 //   console.log(posts)
