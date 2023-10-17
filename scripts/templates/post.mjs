@@ -73,7 +73,7 @@ export function postTemplate(postData, isClickable = false) {
           await removePost(postData.id);
           console.log("Post deleted successfully");
           // Reload the page or update the UI as needed
-          window.location.replace = "/feed";
+          window.location.href = `/feed/index.html`;
         } catch (error) {
           console.error("Error deleting post:", error.message);
           if (error.response) {

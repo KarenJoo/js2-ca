@@ -14,7 +14,6 @@ export function removePostListener() {
           await removePost(id);
           console.log("Post deleted successfully");
   
-          window.location.replace = ('/feed/index.html');
 
         } catch (error) {
           console.error("Error deleting post:", error.message);
