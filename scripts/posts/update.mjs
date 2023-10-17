@@ -1,6 +1,10 @@
 import { API_BASE_URL } from "../helpers/API.mjs";
 import { authFetch } from "./authFetch.mjs";
+import { updatePostListener } from "../handlers/editPost.mjs";
 
+document.addEventListener("DOMContentLoaded", () => {
+  updatePostListener();
+});
 
 const action = "/posts";
 const method = "PUT"; 
