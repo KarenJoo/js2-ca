@@ -5,12 +5,12 @@ import { authFetch } from "./authFetch.mjs";
 const action = "/posts";
 const method = "PUT"; 
 
-export async function updatePost(postData) {
-  if (!postData.id) {
+export async function updatePost(id, postData) {
+  if (!id) {
     throw new Error("Update post requires a postID");
   }
 
-  const updatePostURL = `${API_BASE_URL}${action}/${postData.id}`;
+  const updatePostURL = `${API_BASE_URL}${action}/${id}`;
 
   try {
     const response = await authFetch(updatePostURL, {
