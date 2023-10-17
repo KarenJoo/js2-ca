@@ -1,6 +1,7 @@
 import { postTemplate } from "../templates/post.mjs";
 import { renderPostTemplates } from "../templates/post.mjs";
 import * as postMethods from "../posts/index.mjs";
+import { filterPosts, searchListener } from "../handlers/filterPosts.mjs";
 
 
 async function allPostsTemplate() {
@@ -9,9 +10,10 @@ async function allPostsTemplate() {
     const post = posts.pop();
     const container = document.querySelector("#post");
     container.innerHTML = "";
-   
+    searchListener(posts);
+
     renderPostTemplates(posts, container, true);
   }
-  
+  console.log("search:", searchListener)
   allPostsTemplate();
 
