@@ -1,4 +1,8 @@
 import { timeAgo } from "../posts/timeAgo.mjs";
+import { load } from "../storage/index.mjs";
+
+const profile = load("profile");
+const { name: userName } = profile;
 
 export function postTemplate(postData, isClickable = false) {
     const postContainer = document.createElement("div");
@@ -44,6 +48,23 @@ export function postTemplate(postData, isClickable = false) {
         postContainer.style.cursor = "pointer";
       }
     
+    // Check if the user is === author
+    const { author } = postData;
+    const isAuthorAndUser = author && author.name === userName;
+
+    if (isAuthorAndUser) {
+      const editPostBtn = document.createElement("button");
+      editPostBtn.classList.add("btn", "btn-primary");
+      editPostBtn.innerText = "Edit post";
+
+      editPostBtn.addEventListener("click", () => {
+        // Execute > editPost.html with the post ID
+        window.location.href = `/content/editPost.html?id=${postData.id}`;
+      });
+
+      postBody.appendChild(editPostBtn);
+    }
+  
     return postContainer;
 }
 
