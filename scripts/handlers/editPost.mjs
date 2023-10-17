@@ -1,7 +1,7 @@
 import { updatePost } from "../posts/update.mjs";
 
 export function updatePostListener() {
-    const form = document.querySelector("#createPost");
+    const form = document.querySelector("#updatePost");
   
     const url = new URL(location.href);
     const id = url.searchParams.get("id");

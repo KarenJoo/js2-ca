@@ -1,8 +1,6 @@
 import { API_BASE_URL } from "../helpers/API.mjs";
 import * as storage from "../storage/index.mjs";
-import { getProfiles } from "../path-to-profileApi/profileApi.mjs";
-import { getUserName } from "../handlers/getUserName.mjs";
-
+import { getProfiles } from "../helpers/API.mjs";
 const action = "/auth/login";
 const method = "post";
 
@@ -39,7 +37,7 @@ export async function login(profile) {
 
     console.log("Profile names:", profileNames);
 
-    getUserName();
+    // getUserName();
 
 
     alert("You are now logged in!");
