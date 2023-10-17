@@ -29,20 +29,11 @@ export async function login(profile) {
     storage.save("token", accessToken);
     storage.save("profile", user);
 
-    // Fetch profiles
-    const profiles = await getProfiles();
-
-    // Extract names from profiles
-    const profileNames = profiles.map((profile) => profile.name);
-
-    console.log("Profile names:", profileNames);
-
-    // getUserName();
-
-
-    alert("You are now logged in!");
-  } catch (error) {
-    console.error("Error during login:", error.message);
-   
+    if (response.ok) {
+        window.location.replace("/profile/index.html");
+      }
+  
+    } catch (error) {
+      console.error("Error during login:", error.message);
+    }
   }
-}

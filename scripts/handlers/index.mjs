@@ -11,7 +11,7 @@ import { updateProfileListener } from "./updateProfile.mjs";
 const path = location.pathname;
 
 
-if (path === '/login/') {
+if (path === '/login/index.html') {
   setLoginFormListener()
 } else if (path === '/register/') {
 setRegisterFormListener()
@@ -22,6 +22,7 @@ setRegisterFormListener()
     } else if (path === '/scripts/handlers/updateProfile.mjs') {
       updateProfileListener()
     }
+    
 
   // updatePost({
   //   id: 7508,
