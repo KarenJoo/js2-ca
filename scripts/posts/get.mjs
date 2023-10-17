@@ -1,7 +1,7 @@
 import { API_BASE_URL } from "../helpers/API.mjs";
 import { authFetch } from "./authFetch.mjs";
     
-const action = "/posts";
+const action = "/posts?_author=true";
 
 export async function getPosts() {
      const getPostsURL = `${API_BASE_URL}${action}`;

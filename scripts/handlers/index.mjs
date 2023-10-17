@@ -11,7 +11,7 @@ import { updateProfileListener } from "./updateProfile.mjs";
 const path = location.pathname;
 
 
-if (path === '/login/index.html') {
+if (path === '/login/index.html' || path === "/login/") {
   setLoginFormListener()
 } else if (path === '/register/') {
 setRegisterFormListener()
