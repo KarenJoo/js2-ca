@@ -7,6 +7,8 @@ import { createPostListener } from "./createPost.mjs";
 import { updatePostListener } from "./editPost.mjs";
 import { updatePost } from "../posts/index.mjs";
 import { updateProfileListener } from "./updateProfile.mjs";
+import { remove } from "../storage/index.mjs";
+import { removePostListener } from "./removePost.mjs";
 
 const path = location.pathname;
 
@@ -21,6 +23,8 @@ setRegisterFormListener()
     updatePostListener()
     } else if (path === '/scripts/handlers/updateProfile.mjs') {
       updateProfileListener()
+    } else if (path === '/scripts/handlers/removePost.mjs') {
+      removePostListener()
     }
     
 

@@ -1,5 +1,6 @@
 import { timeAgo } from "../posts/timeAgo.mjs";
 import { load } from "../storage/index.mjs";
+import { removePost } from "../posts/remove.mjs";
 
 const profile = load("profile");
 const { name: userName } = profile;
@@ -62,7 +63,27 @@ export function postTemplate(postData, isClickable = false) {
         window.location.href = `/content/editPost.html?id=${postData.id}`;
       });
 
+      const deletePostBtn = document.createElement("button");
+      deletePostBtn.classList.add("btn", "btn-danger");
+      deletePostBtn.innerText = "Delete post";
+      deletePostBtn.id = `deletePostBtn-${postData.id}`;
+
+      deletePostBtn.addEventListener("click", async () => {
+        try {
+          await removePost(postData.id);
+          console.log("Post deleted successfully");
+          // Reload the page or update the UI as needed
+          window.location.replace = "/feed";
+        } catch (error) {
+          console.error("Error deleting post:", error.message);
+          if (error.response) {
+            console.error("Response data:", await error.response.json());
+          }
+        }
+      });
+
       postBody.appendChild(editPostBtn);
+      postBody.appendChild(deletePostBtn);
     }
   
     return postContainer;
