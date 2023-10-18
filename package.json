@@ -1,0 +1,32 @@
+{
+  "name": "js2-ca",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "sass src/scss:dist/css",
+    "watch": "sass --watch src/scss:dist/css & live-server",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run build && live-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KarenJoo/js2-ca.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KarenJoo/js2-ca/issues"
+  },
+  "homepage": "https://github.com/KarenJoo/js2-ca#readme",
+  "dependencies": {
+    "bootstrap": "^5.2.0"
+  },
+  "devDependencies": {
+    "jsdoc": "^4.0.2",
+    "live-server": "^1.2.2",
+    "prettier": "^3.0.0-alpha.6",
+    "sass": "^1.67.0"
+  }
+}
