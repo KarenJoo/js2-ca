@@ -34,13 +34,18 @@ A social media app designed with the intention to inspire users to explore and f
 2. Create HTML forms for the required tasks
 3. Create functions to handle POST, PUT and DELETE
    
-## This website contains:
+## This app contains:
 - Index 
 - Register new user 
 - Authenticate/Login
 - Profile 
 - Feed 
 - Single post
+
+## This app has not yet been built:
+- a functional and responsive profile page
+- author, username in profile
+- author, username in posts 
   
 ## Built With
 - HTML
@@ -49,7 +54,8 @@ A social media app designed with the intention to inspire users to explore and f
 - JS
 
 ### Executing program
-
+- trello board: https://trello.com/b/zpx1rYE3/js2-trello
+- Netlify: https://boho-styles.netlify.app/
 
 
 ## Authors and Contact
