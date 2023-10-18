@@ -10,10 +10,9 @@ async function allPostsTemplate() {
     const post = posts.pop();
     const container = document.querySelector("#post");
     container.innerHTML = "";
-    searchListener(posts);
+    searchListener(posts, container);
 
     renderPostTemplates(posts, container, true);
   }
-  console.log("search:", searchListener)
   allPostsTemplate();
 
