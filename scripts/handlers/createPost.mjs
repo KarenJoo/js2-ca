@@ -1,5 +1,16 @@
 import { createPost } from "../posts/create.mjs";
 
+/**
+ * A listener preventing the user to create a post.
+ * When the user submits the form, a new post is posted with the provided data.
+ *
+ * @example
+ * ```js
+ * createPostListener(); 
+ * ```
+ * // The listener Will call this function, 
+ * // and when the form is submitted, it will create a new post.
+ */
 export function createPostListener() {
 
   const form = document.querySelector("#createPost");

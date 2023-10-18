@@ -35,24 +35,24 @@
 <main>
   <!-- search bar -->
   <div class="container-fluid d-flex align-items-center justify-content-center mt-3">
-<form id="searchForm" class="input-group mx-1">
+    <form id="searchForm" class="input-group mx-1">
       <input id="search" class="form-control me-1 border-secondary" type="search" placeholder="Search here.."
         aria-label="Search" />
-      <button id="searchBtn" class="btn btn-outline-secondary btn-sm" type="submit">
-        Search
-      </button>
 
       <!-- filter -->
-      <button class="btn btn-outline-secondary dropdown-toggle btn-sm ml-2" type="button" data-bs-toggle="dropdown"
-        aria-expanded="false">
-        Sort Options
-      </button>
+      <div class="btn-group">
+        <button class="btn btn-outline-secondary dropdown-toggle btn-sm" type="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          Sort Options
+        </button>
 
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item">Username</a></li>
-        <li><a class="dropdown-item">Newest posts</a></li>
-      </ul>
-</form>
+        <ul id="filter" class="dropdown-menu">
+          <li><a id="filter-title" class="dropdown-item">Title</a></li>
+          <li><a id="filter-date" class="dropdown-item">Newest posts</a></li>
+        </ul>
+      </div>
+
+    </form>
   </div>
 
   <!-- posts section -->
