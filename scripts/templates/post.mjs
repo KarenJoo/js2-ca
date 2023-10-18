@@ -31,7 +31,7 @@ export function postTemplate(postData, isClickable = false) {
 
     const lastUpdated = document.createElement("p");
     lastUpdated.classList.add("card-text", "text-muted");
-    lastUpdated.innerText = `Last updated ${timeAgo(postData.updated)} ago`;
+    lastUpdated.innerText = `Last updated ${timeAgo(postData.updated)}`;
 
     postBody.appendChild(postTitle);
     postBody.appendChild(postText);
