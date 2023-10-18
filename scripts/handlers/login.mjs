@@ -11,9 +11,6 @@ export function setLoginFormListener() {
   const formData = new FormData(form);
   // get object from entries
   const profile = Object.fromEntries(formData.entries())
-  const action = form.action;
-  const method = form.method; 
-
   // send to the API
   login(profile)
 })   

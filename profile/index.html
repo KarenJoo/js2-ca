@@ -8,8 +8,9 @@
   <meta name="SoMe Styles Profile " content="The profile page for SoMe Styles" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
   <link rel="stylesheet" href="../dist/css/index.css" />
-  <script src="/scripts/posts/create.mjs" type="module" defer></script>
-  <script src="/scripts/index.mjs" type="module" defer></script>
+  <script src="/scripts/auth/login.mjs" type="module" defer></script>
+  <script src="/scripts/pages/profile.mjs" type="module" defer></script>
+
   <title>SoMe Styles | Profile </title>
 </head>
 <body class="bg-primary">
@@ -43,7 +44,7 @@
             <img src="/img/profile.jpg" alt="Profile Image"
               class="profile-image mb-2 shadow rounded-circle object-fit-contain border border-2" width="200px"
               height="200px" />
-            <h1 class="mb-3 display-5 text-secondary">User Name</h1>
+            <h1 id="userName" class="mb-3 display-5 text-secondary">User Name</h1>
             <div class="followers d-flex">
               <p class="h6 mb-2 text-dark">
                 Following: 100 | Followers: 200

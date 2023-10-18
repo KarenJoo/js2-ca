@@ -1,15 +1,19 @@
 import { API_BASE_URL } from "../helpers/API.mjs";
 import { authFetch } from "./authFetch.mjs";
+import { removePostListener } from "../handlers/removePost.mjs";
 
+document.addEventListener("DOMContentLoaded", () => {
+  removePostListener();
+});
 
 const action = "/posts";
 const method = "DELETE"; 
 
-export async function removePost(postData) {
-  if (postData.id) {
+export async function removePost(id) {
+  if (!id) {
     throw new Error("Deleting a post requires a postID");
   }
-  const removePostURL = `${API_BASE_URL}${action}/${postData.id}`;
+  const removePostURL = `${API_BASE_URL}${action}/${id}`;
 
   try {
     const response = await authFetch(removePostURL, {

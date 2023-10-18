@@ -4,7 +4,7 @@ import { authFetch } from "./authFetch.mjs";
 const action = "/posts";
 
 export async function getPosts() {
-     const getPostsURL = `${API_BASE_URL}${action}`;
+     const getPostsURL = `${API_BASE_URL}${action}?_author=true`;
     
         const response = await authFetch(getPostsURL)
        
@@ -18,12 +18,10 @@ export async function getPostById(id) {
         throw new Error("Get requires a postID");
       }
 
-    const getPostURL = `${API_BASE_URL}${action}/${id}`;
+    const getPostURL = `${API_BASE_URL}${action}/${id}?_author=true`;
    
     const response = await authFetch(getPostURL)
       
     return await response.json();
       
    }
-
-

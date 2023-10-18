@@ -1,15 +1,20 @@
 import { API_BASE_URL } from "../helpers/API.mjs";
 import { authFetch } from "./authFetch.mjs";
+import { updatePostListener } from "../handlers/editPost.mjs";
 
+document.addEventListener("DOMContentLoaded", () => {
+  updatePostListener();
+});
 
 const action = "/posts";
 const method = "PUT"; 
 
-export async function updatePost(postData) {
-  if (postData.id) {
+export async function updatePost(id, postData) {
+  if (!id) {
     throw new Error("Update post requires a postID");
   }
-  const updatePostURL = `${API_BASE_URL}${action}/${postData.id}`;
+
+  const updatePostURL = `${API_BASE_URL}${action}/${id}`;
 
   try {
     const response = await authFetch(updatePostURL, {
@@ -21,12 +26,9 @@ export async function updatePost(postData) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
 
-   return await response.json();
-   
-   
+    return await response.json();
   } catch (error) {
     console.error("Error updating post:", error.message);
     throw error;
   }
 }
-

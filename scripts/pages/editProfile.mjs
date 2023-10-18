@@ -6,11 +6,12 @@ const action = "/profiles";
 const method = "put";
 
 export async function updateProfile(profileData) {
+    console.log(profileData);
     if (!profileData.name) {
         throw new Error("Update requires name");
     }
 
-    const updateProfileURL = `${API_BASE_URL}${action}/${profileData.name}`;
+    const updateProfileURL = `${API_BASE_URL}${action}/${profileData.name}/media`;
 
     const response = await authFetch(updateProfileURL, {
         method,
@@ -19,3 +20,4 @@ export async function updateProfile(profileData) {
 
     return await response.json();
 }
+

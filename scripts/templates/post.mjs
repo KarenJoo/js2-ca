@@ -1,4 +1,9 @@
 import { timeAgo } from "../posts/timeAgo.mjs";
+import { load } from "../storage/index.mjs";
+import { removePost } from "../posts/remove.mjs";
+
+const profile = load("profile");
+const { name: userName } = profile;
 
 export function postTemplate(postData, isClickable = false) {
     const postContainer = document.createElement("div");
@@ -44,6 +49,43 @@ export function postTemplate(postData, isClickable = false) {
         postContainer.style.cursor = "pointer";
       }
     
+    // Check if the user is === author
+    const { author } = postData;
+    const isAuthorAndUser = author && author.name === userName;
+
+    if (isAuthorAndUser) {
+      const editPostBtn = document.createElement("button");
+      editPostBtn.classList.add("btn", "btn-primary");
+      editPostBtn.innerText = "Edit post";
+
+      editPostBtn.addEventListener("click", () => {
+        // Execute > editPost.html with the post ID
+        window.location.href = `/content/editPost.html?id=${postData.id}`;
+      });
+
+      const deletePostBtn = document.createElement("button");
+      deletePostBtn.classList.add("btn", "btn-danger");
+      deletePostBtn.innerText = "Delete post";
+      deletePostBtn.id = `deletePostBtn-${postData.id}`;
+
+      deletePostBtn.addEventListener("click", async () => {
+        try {
+          await removePost(postData.id);
+          console.log("Post deleted successfully");
+          // Reload the page or update the UI as needed
+          window.location.href = `/feed/index.html`;
+        } catch (error) {
+          console.error("Error deleting post:", error.message);
+          if (error.response) {
+            console.error("Response data:", await error.response.json());
+          }
+        }
+      });
+
+      postBody.appendChild(editPostBtn);
+      postBody.appendChild(deletePostBtn);
+    }
+  
     return postContainer;
 }
 
