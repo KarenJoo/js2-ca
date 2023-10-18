@@ -16,6 +16,12 @@ export const filterPosts = (searchValue, postData, filterType) => {
         const timeB = new Date(b.updated).getTime();
         return timeB - timeA;
       });
+    } else if (filterType === "filter-title") {
+      filteredPosts.sort((a, b) => {
+        const titleA = a.title.toLowerCase();
+        const titleB = b.title.toLowerCase();
+        return titleA.localeCompare(titleB);
+      });
     }
 
     return filteredPosts;
@@ -41,7 +47,8 @@ export const filterPosts = (searchValue, postData, filterType) => {
   
     filterTitle.onclick = function () {
       const filterType = getActiveFilter();
-      const filteredPosts = filterPosts(postData, filterType);
+      const searchValue = document.querySelector("#search").value.trim().toLowerCase(); 
+      const filteredPosts = filterPosts(searchValue, postData, filterType);
       container.innerHTML = "";
       renderPostTemplates(filteredPosts, container, true);
     };

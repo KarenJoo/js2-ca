@@ -5,14 +5,8 @@ import { filterPosts, searchListener, filterListener, getActiveFilter } from "..
 
 
 async function allPostsTemplate() {
-  try {
     const posts = await postMethods.getPosts();
     console.log(posts);
-
-    if (!Array.isArray(posts)) {
-      throw new Error("Invalid data format: posts should be an array");
-    }
-
     const post = posts.pop();
     const container = document.querySelector("#post");
     container.innerHTML = "";
@@ -20,9 +14,6 @@ async function allPostsTemplate() {
     filterListener(posts, container);
 
     renderPostTemplates(posts, container, true);
-  } catch (error) {
-    console.log("error fetching posts:", error)
   }
-}
   allPostsTemplate();
 
