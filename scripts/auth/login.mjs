@@ -5,6 +5,27 @@ const action = "/auth/login";
 const method = "post";
 
 /**
+ * Displays an error message for login.
+ *
+ * @param {string} message - The error message to be displayed.
+ * @returns {void}
+ *
+ * @example
+ * ```js
+ * // Calls the function to display an error message
+ * loginErrorMessage("Invalid username or password");
+ * function loginErrorMessage(message) {
+ * }
+ * ```
+   */
+  
+function loginErrorMessage(message) {
+  const errorMessage = document.getElementById("loginErrorMessage");
+  errorMessage.textContent = message;
+  errorMessage.classList.remove("d-none");
+}
+
+/**
  * Logs in a user and saves their access token and profile data.
  *
  * @param {Object} profile - The user profile objects login information.
@@ -59,5 +80,7 @@ export async function login(profile) {
   
     } catch (error) {
       console.error("Error during login:", error.message);
+
+      loginErrorMessage("Log in requires a registered user.");
     }
   }
