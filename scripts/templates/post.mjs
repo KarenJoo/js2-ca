@@ -3,8 +3,9 @@ import { load } from "../storage/index.mjs";
 import { removePost } from "../posts/remove.mjs";
 
 const profile = load("profile");
-const { name: userName } = profile;
-
+// const { name: userName } = profile;
+const userName = profile?.name || "unknown name";
+console.log(userName);
 /**
  * Template for displaying a post.
  *
