@@ -1,5 +1,16 @@
 import { updatePost } from "../posts/update.mjs";
 
+/**
+ * A listener preventing the user to update a post.
+ * When the user submits the form, it updates an existing post with the provided data.
+ *
+ * @example
+ * ```js
+ * updatePostListener();
+ * ```
+ * // The listener will call this function,
+ * // and when the form is submitted, it will update an existing post.
+ */
 export function updatePostListener() {
     const form = document.querySelector("#updatePost");
   
@@ -9,7 +20,6 @@ export function updatePostListener() {
     if (form) {
       form.addEventListener("submit", async (event) => {
         event.preventDefault();
-        console.log("Post success!");
   
         const formData = new FormData(form);
 
@@ -25,7 +35,6 @@ export function updatePostListener() {
         console.log(postData); 
         try {
           await updatePost(id, postData);
-          console.log("Post updated successfully");
   
           
           window.location.href = "/feed";

@@ -5,6 +5,19 @@ import { removePost } from "../posts/remove.mjs";
 const profile = load("profile");
 const { name: userName } = profile;
 
+/**
+ * Template for displaying a post.
+ *
+ * @param {Object} postData - The data of the post.
+ * @param {boolean} [isClickable=false] - If the post is clickable then redirect to single post page.
+ * @returns {HTMLDivElement} The post template.
+ *
+ * @example
+ * ```js
+ * const postContainer = postTemplate(postData, true);
+ * document.body.appendChild(postContainer);
+ * ```
+ */
 export function postTemplate(postData, isClickable = false) {
     const postContainer = document.createElement("div");
     postContainer.classList.add("col-12", "col-md-4", "mb-2");
@@ -89,10 +102,37 @@ export function postTemplate(postData, isClickable = false) {
     return postContainer;
 }
 
+/**
+ * Renders a single post template 
+ * Also appends the post to the specified parent element.
+ *
+ * @param {Object} postData - The data of the post.
+ * @param {HTMLElement} parent - The parent element > post template is appended.
+ * @returns {void}
+ *
+ * @example
+ * ```js
+ * renderSinglePostTemplate(postData, document.querySelector("#postContainer"));
+ * ```
+ */
 export function renderSinglePostTemplate(postData, parent) {
     parent.append(postTemplate(postData))
 }
 
+/**
+ * Renders several post templates 
+ * Also appends them to the specified parent element.
+ *
+ * @param {Array<Object>} postDataList - The list of post data objects.
+ * @param {HTMLElement} parent - The parent element > post templates are appended to.
+ * @param {boolean} [isClickable=false] - If the posts are clickable then redirect to single post page.
+ * @returns {void}
+ *
+ * @example
+ * ```js
+ * renderPostTemplates(postDataList, document.querySelector("#postList"), true);
+ * ```
+ */
 export function renderPostTemplates(postDataList, parent, isClickable = false) {
     parent.append(...postDataList.map(postData => postTemplate(postData, isClickable)));
 }

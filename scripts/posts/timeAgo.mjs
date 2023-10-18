@@ -1,3 +1,17 @@
+/**
+ * Calculates the time difference between the current date and a given date
+ *
+ * @param {string} dateString - Calculates the time difference
+ * @returns {string} the time difference in a user-friendly format (days, hours, minutes, seconds ago).
+ *
+ * @example
+*```js
+ * const postDate = "2023-10-18T12:30:00"; // Replace with the actual date string
+ * const timeDifference = timeAgo(postDate);
+ * ```
+ * // When calling this function, the user retrieves a string displaying the time difference.
+ */
+
 //chatGPT
 export function timeAgo(dateString) {
     const now = new Date();

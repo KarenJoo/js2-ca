@@ -4,6 +4,30 @@ import { getProfiles } from "../helpers/API.mjs";
 const action = "/auth/login";
 const method = "post";
 
+/**
+ * Logs in a user and saves their access token and profile data.
+ *
+ * @param {Object} profile - The user profile objects login information.
+ * @param {string} profile.username - The username of the user
+ * @param {string} profile.password - The password of the user
+ * @returns {Promise} A Promise that resolves when the login is successful
+ * @example
+ * ```js
+ * const userProfile = {
+ *   username: "(userName)",
+ *   password: "(password)",
+ * };
+ *
+ * try {
+ *   await login(userProfile);
+ *   console.log("Login successful!");
+ * } catch (error) {
+ *   console.error("Error during login:", error.message);
+ * }
+ * // Only registered users gets logged in
+ ** ```
+ */ 
+
 export async function login(profile) {
   const loginURL = API_BASE_URL + action;
   const body = JSON.stringify(profile);

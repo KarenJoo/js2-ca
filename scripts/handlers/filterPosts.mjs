@@ -1,7 +1,23 @@
 import { renderPostTemplates } from "../templates/post.mjs";
 import { timeAgo } from "../posts/timeAgo.mjs";
 
-
+/**
+ * Filters post data (of arrays) based on the search value and filter type.
+ *
+ * @param {string} searchValue - The search value to filter posts.
+ * @param {Object[]} postData - An array of post data to filter.
+ * @param {string} [filterType="filter-title"] - The type of filter (ex. optional).
+ * @returns {Object[]} An array of filtered post data.
+ *
+ * @example
+ * ```js
+ * const allPosts = [...] 
+ * const searchValue = "example";
+ * const filterType = "filter-title";
+ * const filteredPosts = filterPosts(searchValue, allPosts, filterType);
+ * console.log(filteredPosts);
+ * ```
+ */
 export const filterPosts = (searchValue, postData, filterType) => {
     const filteredPosts = postData.filter((filteredData) => {
       const titleMatch = filteredData.title.toLowerCase().includes(searchValue);
@@ -27,7 +43,8 @@ export const filterPosts = (searchValue, postData, filterType) => {
     return filteredPosts;
   };
 
-  
+
+ //chat(GPT) 
  export const searchListener = (postData, container) => {
     const search = document.querySelector("#search");
     
